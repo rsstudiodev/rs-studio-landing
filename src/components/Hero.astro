@@ -1,12 +1,10 @@
 ---
 import i18n from "i18next";
-import { tList } from "@/i18n/t";
 import WhatsAppIcon from "./WhatsAppIcon.astro";
 import { whatsappHref } from "@/lib/whatsapp";
 import { projectScreenshots, projectScreenshotAlts } from "@/content/projects";
 import { readImageSize } from "@/lib/imageSize";
 
-type Stat = { label: string; value: string };
 type Shot = {
   src: string;
   ratio: number;
@@ -15,8 +13,6 @@ type Shot = {
   height: number;
   alt?: string;
 };
-
-const stats = tList<Stat>("hero.stats");
 
 const RATIO_TOLERANCE = 0.06;
 
