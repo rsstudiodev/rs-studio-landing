@@ -91,14 +91,14 @@ const logoHref = onHome ? "#top" : homePath();
     </div>
   </div>
 
-  <div class="mt-6">
+  <div class="mt-8">
     {
       links.map((link) => (
         <a
           href={link.href}
-          class="block border-b border-rule px-gutter py-5 transition-colors duration-200 hover:text-moss"
+          class="block border-b border-rule px-gutter py-7 transition-colors duration-200 hover:text-moss"
         >
-          <span class="text-service display-face">{i18n.t(link.key)}</span>
+          <span class="text-section display-face">{i18n.t(link.key)}</span>
         </a>
       ))
     }
