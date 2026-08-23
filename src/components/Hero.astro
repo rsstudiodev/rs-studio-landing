@@ -79,137 +79,135 @@ const phoneFrames = interleave(
   false,
 );
 ---
-
 <section
   id="top"
-  class="relative isolate grid min-h-[calc(100svh-var(--size-header))] content-start bg-paper px-gutter py-hero-top"
+  class="relative isolate overflow-hidden bg-paper px-gutter pt-hero-top pb-hero-bottom"
 >
-  <div
-    class="relative mx-auto grid w-full max-w-content min-h-[calc(100svh-var(--size-header)-var(--spacing-hero-top)*2)] content-center"
-  >
-    <div
-      class="grid grid-cols-1 items-center gap-split wide:grid-cols-[1fr_1.05fr]"
-    >
-      <div id="hero-copy" class="max-w-prose">
-        <h1 class="mt-5 max-w-[15ch] text-headline display-face text-balance">
-          {i18n.t("hero.title")}
-        </h1>
-        <div class="mt-cta grid gap-4">
-          <p class="text-lead text-pretty text-graphite">
-            {i18n.t("hero.intro")}
-          </p>
-        </div>
-        <div class="mt-cta flex flex-wrap items-center gap-3">
-          <a
-            href={whatsappHref()}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex min-h-12 items-center gap-2.5 bg-moss px-6 py-3.5 text-paper transition-colors duration-200 hover:bg-pine active:scale-[0.99]"
-          >
-            <WhatsAppIcon class="h-4.5 w-4.5" />
-            <span class="text-lead-sm font-medium"
-              >{i18n.t("whatsapp.cta")}</span
-            >
-          </a>
-          <a
-            href="#work"
-            class="group inline-flex min-h-12 items-center gap-2.5 border border-rule-strong px-6 py-3.5 transition-colors duration-200 hover:border-moss hover:text-moss"
-          >
-            <span class="text-lead-sm font-medium"
-              >{i18n.t("hero.ctaSecondary")}</span
-            >
-            <span
-              aria-hidden="true"
-              class="text-mute transition-transform duration-200 group-hover:translate-x-1"
-            >
-              &#8594;
-            </span>
-          </a>
-        </div>
-      </div>
-      <div id="hero-devices" class="relative pb-[14%] wide:pb-[11%]">
-        <div
-          id="hero-screen"
-          class="relative ml-auto w-[80%] border border-rule-strong bg-substrate p-2 wide:w-[82%]"
-        >
-          <div
-            id="hero-screen-window"
-            role="img"
-            aria-label={i18n.t("hero.screenAlt")}
-            class="relative aspect-16/10 w-full overflow-hidden bg-paper"
-          >
-            {
-              screenFrames.length > 0 ? (
-                screenFrames.map((frame, index) => (
-                  <img
-                    data-screen-frame
-                    src={frame.src}
-                    alt={frame.alt || "Project work screenshot"}
-                    width={frame.width}
-                    height={frame.height}
-                    decoding="async"
-                    loading={index === 0 ? "eager" : "lazy"}
-                    fetchpriority={index === 0 ? "high" : "low"}
-                    style={index === 0 ? undefined : "opacity:0"}
-                    class="absolute inset-x-0 top-0 block w-full"
-                  />
-                ))
-              ) : (
-                <span class="absolute inset-0 flex items-center justify-center">
-                  <span class="label text-mute">
-                    {i18n.t("work.shotPlaceholder")}
-                  </span>
-                </span>
-              )
-            }
+  {/* A drawn range, not a photograph. See heroRidges.ts. */}
+  <canvas
+    id="hero-ridges"
+    aria-hidden="true"
+    class="pointer-events-none absolute inset-0 -z-10 h-full w-full"></canvas>
 
-            <span
-              aria-hidden="true"
-              class="halftone-fine absolute inset-0 opacity-8"></span>
-          </div>
-          <span
-            aria-hidden="true"
-            class="absolute top-full left-1/2 h-[5%] w-[9%] -translate-x-1/2 bg-substrate"
-          ></span>
-          <span
-            aria-hidden="true"
-            class="absolute top-[105%] left-1/2 h-px w-[26%] -translate-x-1/2 bg-rule-strong"
-          ></span>
-        </div>
-        <div
-          id="hero-phone"
-          class="absolute bottom-0 left-0 w-[21%] border border-rule-strong bg-substrate px-1.5 pt-2.5 pb-1.5 wide:w-[19%]"
+  <div class="relative mx-auto grid w-full max-w-content justify-items-center text-center">
+    <h1 class="max-w-[18ch] text-headline display-face text-balance">
+      {i18n.t("hero.title")}
+    </h1>
+
+    <p class="mt-lead max-w-prose text-lead text-pretty text-graphite">
+      {i18n.t("hero.intro")}
+    </p>
+
+    <div class="mt-cta flex flex-wrap items-center justify-center gap-3">
+      <a
+        href={whatsappHref()}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex min-h-12 items-center gap-2.5 bg-moss px-6 py-3.5 text-paper transition-colors duration-200 hover:bg-pine active:scale-[0.99]"
+      >
+        <WhatsAppIcon class="h-4.5 w-4.5" />
+        <span class="text-lead-sm font-medium">{i18n.t("whatsapp.cta")}</span>
+      </a>
+      <a
+        href="#work"
+        class="group inline-flex min-h-12 items-center gap-2.5 border border-ink px-6 py-3.5 transition-colors duration-200 hover:bg-ink hover:text-paper"
+      >
+        <span class="text-lead-sm font-medium">{i18n.t("hero.ctaSecondary")}</span
         >
-          <span
-            aria-hidden="true"
-            class="absolute top-1.25 left-1/2 h-px w-[22%] -translate-x-1/2 bg-rule-strong"
-          ></span>
-          <div
-            id="hero-phone-window"
-            role="img"
-            aria-label={i18n.t("hero.phoneAlt")}
-            class="relative aspect-9/17 w-full overflow-hidden bg-paper"
-          >
-            {
-              phoneFrames.map((frame, index) => (
+        <span
+          aria-hidden="true"
+          class="transition-transform duration-200 group-hover:translate-x-1"
+        >
+          &#8594;
+        </span>
+      </a>
+    </div>
+
+    <div
+      id="hero-devices"
+      class="relative mt-flow w-full max-w-[860px] pb-[9%]"
+    >
+      <div
+        id="hero-screen"
+        class="relative mx-auto w-[76%] border border-rule-strong bg-substrate p-2"
+      >
+        <div
+          id="hero-screen-window"
+          role="img"
+          aria-label={i18n.t("hero.screenAlt")}
+          class="relative aspect-16/10 w-full overflow-hidden bg-paper"
+        >
+          {
+            screenFrames.length > 0 ? (
+              screenFrames.map((frame, index) => (
                 <img
-                  data-phone-frame
+                  data-screen-frame
                   src={frame.src}
-                  alt={frame.alt || "Mobile project screenshot"}
+                  alt={frame.alt || "Project work screenshot"}
                   width={frame.width}
                   height={frame.height}
                   decoding="async"
-                  loading="lazy"
+                  loading={index === 0 ? "eager" : "lazy"}
+                  fetchpriority={index === 0 ? "high" : "low"}
                   style={index === 0 ? undefined : "opacity:0"}
                   class="absolute inset-x-0 top-0 block w-full"
                 />
               ))
-            }
+            ) : (
+              <span class="absolute inset-0 flex items-center justify-center">
+                <span class="label text-mute">
+                  {i18n.t("work.shotPlaceholder")}
+                </span>
+              </span>
+            )
+          }
 
-            <span
-              aria-hidden="true"
-              class="halftone-fine absolute inset-0 opacity-8"></span>
-          </div>
+          <span
+            aria-hidden="true"
+            class="halftone-fine absolute inset-0 opacity-8"></span>
+        </div>
+        <span
+          aria-hidden="true"
+          class="absolute top-full left-1/2 h-[5%] w-[9%] -translate-x-1/2 bg-substrate"
+        ></span>
+        <span
+          aria-hidden="true"
+          class="absolute top-[105%] left-1/2 h-px w-[26%] -translate-x-1/2 bg-rule-strong"
+        ></span>
+      </div>
+      <div
+        id="hero-phone"
+        class="absolute bottom-0 left-[3%] w-[17%] border border-rule-strong bg-substrate px-1.5 pt-2.5 pb-1.5"
+      >
+        <span
+          aria-hidden="true"
+          class="absolute top-1.25 left-1/2 h-px w-[22%] -translate-x-1/2 bg-rule-strong"
+        ></span>
+        <div
+          id="hero-phone-window"
+          role="img"
+          aria-label={i18n.t("hero.phoneAlt")}
+          class="relative aspect-9/17 w-full overflow-hidden bg-paper"
+        >
+          {
+            phoneFrames.map((frame, index) => (
+              <img
+                data-phone-frame
+                src={frame.src}
+                alt={frame.alt || "Mobile project screenshot"}
+                width={frame.width}
+                height={frame.height}
+                decoding="async"
+                loading="lazy"
+                style={index === 0 ? undefined : "opacity:0"}
+                class="absolute inset-x-0 top-0 block w-full"
+              />
+            ))
+          }
+
+          <span
+            aria-hidden="true"
+            class="halftone-fine absolute inset-0 opacity-8"></span>
         </div>
       </div>
     </div>
@@ -217,6 +215,8 @@ const phoneFrames = interleave(
 </section>
 <script>
   import { initHeroDevices } from "@/scripts/heroDevices";
+  import { initHeroRidges } from "@/scripts/heroRidges";
 
+  initHeroRidges();
   initHeroDevices();
 </script>

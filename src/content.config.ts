@@ -29,6 +29,7 @@ const projects = defineCollection({
     title: z.string(),
     brief_description: z.string(),
     category: z.string(),
+    "category-link": z.string().optional(),
     year: z.string(),
     project_id: z.number(),
     lang: z.enum(["es-MX", "en-US"]),

@@ -12,7 +12,11 @@ const backHref = sectionHref(Astro.url.pathname, "#work");
 const isExternal = Boolean(project.href?.startsWith("http"));
 
 const meta = [
-  { label: i18n.t("projectPage.categoryLabel"), value: project.category },
+  {
+    label: i18n.t("projectPage.categoryLabel"),
+    value: project.category,
+    href: project["category-link"],
+  },
   { label: i18n.t("projectPage.yearLabel"), value: project.year },
 ];
 ---
@@ -40,7 +44,18 @@ const meta = [
         meta.map((item) => (
           <div>
             <dt class="label text-mute">{item.label}</dt>
-            <dd class="tnum mt-2 text-subhead display-face">{item.value}</dd>
+            <dd class="tnum mt-2 text-subhead display-face">
+              {item.href ? (
+                <a
+                  href={item.href}
+                  class="text-moss underline decoration-rule underline-offset-4 transition-colors duration-200 hover:text-pine hover:decoration-current"
+                >
+                  {item.value}
+                </a>
+              ) : (
+                item.value
+              )}
+            </dd>
           </div>
         ))
       }

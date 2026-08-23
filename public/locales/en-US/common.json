@@ -23,9 +23,8 @@
     "label": "Back to home"
   },
   "hero": {
-    "greeting": "Hi!",
     "title": "Software that strengthens local businesses and communities",
-    "intro": "RS Studio builds websites, digital products, automation systems, and custom software that help small businesses grow, operate more efficiently, and reach more customers.",
+    "intro": "We build websites, digital products, automation systems, and custom software that help small businesses grow, operate more efficiently, and reach more customers.",
     "introMission": "We believe **great technology** should not be reserved for large companies.\n\nOur mission is to build practical **digital solutions** that strengthen local economies, support community-driven projects, and give independent businesses access to **the same quality of tools** used by larger organizations.",
     "missionEyebrow": "Our mission",
     "closing": "When local businesses grow, everyone grows.",
@@ -115,8 +114,8 @@
     "example": "Examples:"
   },
   "getStarted": {
-    "title": "¡Comencemos!",
-    "meta": "Primeros pasos",
+    "title": "Let's get started!",
+    "meta": "Getting started",
     "introText": "We want to get to know you better! Answer these quick questions so we can book a discovery call, or send us a message for personalized follow-up",
     "quoter": {
       "instanceId": "homepage-quoter",
