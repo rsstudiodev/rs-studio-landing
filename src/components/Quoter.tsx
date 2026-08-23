@@ -20,13 +20,30 @@ export interface QuoterProps {
   secondaryCta?: QuoterSecondaryCta;
   collectContact?: boolean;
   introText?: string;
+  /**
+   * The background of the section the quoter is placed in. The card takes the
+   * other one, so it always reads as a panel sitting on the page rather than
+   * dissolving into it. Callers pass their own section background here, not
+   * the colour they want the card to be.
+   */
+  surface?: "paper" | "substrate";
 }
 
-const optionButtonClass = (checked: boolean) =>
+/**
+ * Card fill and option hover, each the opposite of the host section. Fields
+ * take the section colour back, so an input never sits on the same fill as
+ * the card it is drawn on whichever way round the pair is used.
+ */
+const SURFACE = {
+  paper: { card: "bg-substrate", field: "bg-paper", optionHover: "hover:bg-paper" },
+  substrate: { card: "bg-paper", field: "bg-substrate", optionHover: "hover:bg-substrate" },
+} as const;
+
+const optionButtonClass = (checked: boolean, optionHover: string) =>
   `flex min-h-13 w-full cursor-pointer items-center gap-3 border px-5 py-3.5 text-left text-lead-sm font-medium transition-colors duration-200 has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-moss ${
     checked
       ? "border-moss bg-moss text-paper"
-      : "border-rule text-ink hover:border-moss hover:bg-substrate"
+      : `border-rule text-ink hover:border-moss ${optionHover}`
   }`;
 
 export default function Quoter({
@@ -41,7 +58,12 @@ export default function Quoter({
   secondaryCta,
   collectContact,
   introText,
+  surface = "paper",
 }: QuoterProps) {
+  const { card, field, optionHover } = SURFACE[surface];
+  const cardClass = `relative border border-rule-strong ${card} ${className ?? ""}`;
+  const fieldClass = `w-full border border-rule ${field} px-4 py-3 text-lead text-ink placeholder:text-mute focus:border-moss focus:outline-none`;
+
   const q = useQuoter({
     questions,
     sectionTitle,
@@ -71,7 +93,7 @@ export default function Quoter({
       <div
         ref={rootRef}
         data-quoter-instance={instanceId}
-        className={`relative border border-rule-strong bg-paper ${className ?? ""}`}
+        className={cardClass}
       >
         <div className="h-1.5 w-full bg-fern" />
         <div className="p-6 sm:p-10">
@@ -92,7 +114,7 @@ export default function Quoter({
       <div
         ref={rootRef}
         data-quoter-instance={instanceId}
-        className={`relative border border-rule-strong bg-paper ${className ?? ""}`}
+        className={cardClass}
       >
         <div className="h-1.5 w-full bg-fern" />
         <div className="p-6 sm:p-10">
@@ -110,7 +132,7 @@ export default function Quoter({
                 value={q.contactName}
                 onChange={(e) => q.setContactName(e.target.value)}
                 placeholder={t.contactNamePlaceholder}
-                className="mt-1.5 w-full border border-rule px-4 py-3 text-lead text-ink placeholder:text-mute focus:border-moss focus:outline-none"
+                className={`mt-1.5 ${fieldClass}`}
               />
             </div>
             <div>
@@ -123,7 +145,7 @@ export default function Quoter({
                 value={q.contactEmail}
                 onChange={(e) => q.setContactEmail(e.target.value)}
                 placeholder={t.contactEmailPlaceholder}
-                className="mt-1.5 w-full border border-rule px-4 py-3 text-lead text-ink placeholder:text-mute focus:border-moss focus:outline-none"
+                className={`mt-1.5 ${fieldClass}`}
               />
             </div>
             <div>
@@ -136,7 +158,7 @@ export default function Quoter({
                 value={q.contactPhone}
                 onChange={(e) => q.setContactPhone(e.target.value)}
                 placeholder={t.contactPhonePlaceholder}
-                className="mt-1.5 w-full border border-rule px-4 py-3 text-lead text-ink placeholder:text-mute focus:border-moss focus:outline-none"
+                className={`mt-1.5 ${fieldClass}`}
               />
             </div>
           </div>
@@ -171,7 +193,7 @@ export default function Quoter({
       <div
         ref={rootRef}
         data-quoter-instance={instanceId}
-        className={`relative border border-rule-strong bg-paper ${className ?? ""}`}
+        className={cardClass}
       >
         <div className="h-1.5 w-full bg-fern" />
         <div className="p-6 sm:p-10">
@@ -201,7 +223,7 @@ export default function Quoter({
               value={q.extraNotes}
               onChange={(e) => q.setExtraNotes(e.target.value)}
               placeholder={t.extraNotesPlaceholder}
-              className="mt-3 w-full resize-none border border-rule px-4 py-3 text-lead text-ink placeholder:text-mute focus:border-moss focus:outline-none"
+              className={`mt-3 resize-none ${fieldClass}`}
             />
             <p className="mt-1 text-right text-xs text-mute">{q.charactersLeftText}</p>
           </div>
@@ -261,9 +283,9 @@ export default function Quoter({
     <div
       ref={rootRef}
       data-quoter-instance={instanceId}
-      className={`relative border border-rule-strong bg-paper ${className ?? ""}`}
+      className={cardClass}
     >
-      <div className="h-1.5 w-full bg-substrate">
+      <div className="h-1.5 w-full bg-rule">
         <div
           className="h-full bg-fern transition-[width] duration-300"
           style={{ width: `${Math.max(q.progress, q.total ? 100 / q.total / 2 : 0)}%` }}
@@ -283,7 +305,7 @@ export default function Quoter({
               const checked = q.isOptionSelected(option.id);
               return (
                 <div key={option.id} className={option.includeOtherField ? "sm:col-span-2" : undefined}>
-                  <label className={optionButtonClass(checked)}>
+                  <label className={optionButtonClass(checked, optionHover)}>
                     <input
                       type={question.type === "single" ? "radio" : "checkbox"}
                       name={question.id}
