@@ -25,12 +25,30 @@
           "required": true,
           "label": "What type of business do you have?",
           "options": [
-            { "id": "food", "label": "Restaurants & Food" },
-            { "id": "beauty", "label": "Beauty & Aesthetics (Spa, Barbershop, Salon, Nails & Eyebrows, etc.)" },
-            { "id": "workshop", "label": "Workshop (Auto, Electrical, etc)" },
-            { "id": "consulting", "label": "Consulting (Legal, Financial, Real Estate)" },
-            { "id": "medical", "label": "Medical services (Private practice, Nutrition, Dental, Psychological care)" },
-            { "id": "fitness", "label": "Fitness (Gym, Crossfit, Pilates, Personal training)" },
+            {
+              "id": "food",
+              "label": "Restaurants & Food"
+            },
+            {
+              "id": "beauty",
+              "label": "Beauty & Aesthetics (Spa, Barbershop, Salon, Nails & Eyebrows, etc.)"
+            },
+            {
+              "id": "workshop",
+              "label": "Workshop (Auto, Electrical, etc)"
+            },
+            {
+              "id": "consulting",
+              "label": "Consulting (Legal, Financial, Real Estate)"
+            },
+            {
+              "id": "medical",
+              "label": "Medical services (Private practice, Nutrition, Dental, Psychological care)"
+            },
+            {
+              "id": "fitness",
+              "label": "Fitness (Gym, Crossfit, Pilates, Personal training)"
+            },
             {
               "id": "other",
               "label": "Other",
@@ -45,11 +63,26 @@
           "required": true,
           "label": "What are your main challenges?",
           "options": [
-            { "id": "customers", "label": "Get more customers" },
-            { "id": "trust", "label": "Build trust" },
-            { "id": "filter", "label": "Filter leads" },
-            { "id": "schedule", "label": "Schedule appointments" },
-            { "id": "prices", "label": "Show pricing" }
+            {
+              "id": "customers",
+              "label": "Get more customers"
+            },
+            {
+              "id": "trust",
+              "label": "Build trust"
+            },
+            {
+              "id": "filter",
+              "label": "Filter leads"
+            },
+            {
+              "id": "schedule",
+              "label": "Schedule appointments"
+            },
+            {
+              "id": "prices",
+              "label": "Show pricing"
+            }
           ]
         },
         {
@@ -58,13 +91,35 @@
           "required": true,
           "label": "What digital assets do you already have?",
           "options": [
-            { "id": "logo", "label": "Logo, colors, brand identity" },
-            { "id": "photos", "label": "Quality photos" },
-            { "id": "instagram", "label": "Instagram account" },
-            { "id": "gmaps", "label": "Google Maps profile" },
-            { "id": "menu", "label": "Menu/Catalog" },
-            { "id": "testimonials", "label": "Testimonials" },
-            { "id": "none", "label": "None", "exclusive": true },
+            {
+              "id": "logo",
+              "label": "Logo, colors, brand identity"
+            },
+            {
+              "id": "photos",
+              "label": "Quality photos"
+            },
+            {
+              "id": "instagram",
+              "label": "Instagram account"
+            },
+            {
+              "id": "gmaps",
+              "label": "Google Maps profile"
+            },
+            {
+              "id": "menu",
+              "label": "Menu/Catalog"
+            },
+            {
+              "id": "testimonials",
+              "label": "Testimonials"
+            },
+            {
+              "id": "none",
+              "label": "None",
+              "exclusive": true
+            },
             {
               "id": "other",
               "label": "Other",
@@ -96,8 +151,14 @@
           "Register your own domain (mirestaurante.com, myclinic.mx, yourname.services)"
         ],
         "examples": [
-          { "label": "mi-restaurante.com", "href": "https://mi-restaurante.com" },
-          { "label": "super-gimnasio.mx", "href": "https://super-gimnasio.mx" }
+          {
+            "label": "mi-restaurante.com",
+            "href": "https://mi-restaurante.com"
+          },
+          {
+            "label": "super-gimnasio.mx",
+            "href": "https://super-gimnasio.mx"
+          }
         ]
       },
       "subdomain": {
@@ -108,23 +169,99 @@
           "We help you decide which fits your business model during the discovery phase"
         ],
         "examples": [
-          { "label": "mi-restaurante.rslink.mx", "href": "https://mi-restaurante.rslink.mx" },
-          { "label": "super-gimnasio.rslink.mx", "href": "https://rsstudiodev.github.io/super-gimnasio/" }
+          {
+            "label": "mi-restaurante.rslink.mx",
+            "href": "https://mi-restaurante.rslink.mx"
+          },
+          {
+            "label": "super-gimnasio.rslink.mx",
+            "href": "https://rsstudiodev.github.io/super-gimnasio/"
+          }
         ]
       }
     },
-    "trust": {
-      "title": "Build Trust Before the First Conversation",
-      "body": "A service business doesn't sell a product. It sells itself. Before reaching out, a potential client wants to know if you know what you're doing.",
-      "items": [
-        "Client testimonials",
-        "Years of experience or number of businesses served",
-        "Real cases or projects",
-        "Certifications or specialties",
-        "Response time",
-        "Your work process"
+    "showcase": {
+      "title": "What can we build for you?",
+      "intro": "These are two demo sites we built to show what the result looks like. Open them, browse them, then ask for yours with the sections your business needs.",
+      "demos": [
+        {
+          "image": "idiomas",
+          "name": "Idiomas del Futuro",
+          "tagline": "Language school · demo",
+          "url": "https://idiomas-futuro.rsstudiodev-gma.workers.dev/",
+          "description": "A language school site. It shows upcoming course start dates with seats left, programs by level, plans with prices, the Instagram feed, student testimonials and a map of the location. The booking button opens WhatsApp with the message already written.",
+          "tags": [
+            "Course calendar",
+            "Plans and prices",
+            "Instagram",
+            "Testimonials",
+            "Map",
+            "WhatsApp booking"
+          ]
+        },
+        {
+          "image": "gimnasio",
+          "name": "Super Gimnasio",
+          "tagline": "Boxing school · demo",
+          "url": "https://rsstudiodev.github.io/super-gimnasio/",
+          "description": "A gym site with several pages: classes, weekly schedule, coaches, facilities and memberships. Each membership shows what it includes and what it costs. The floating WhatsApp button books the first class from any page.",
+          "tags": [
+            "Multiple pages",
+            "Schedules",
+            "Memberships",
+            "Team",
+            "Gallery",
+            "Sticky WhatsApp"
+          ]
+        }
       ],
-      "quote": "Most visitors decide whether they trust a business in seconds. Your website should make that decision easy."
+      "capabilities": [
+        {
+          "icon": "calendar",
+          "title": "Calendars and schedules",
+          "description": "Class schedules, upcoming start dates, availability by day and seats left. Visitors see when they can come without writing to you."
+        },
+        {
+          "icon": "whatsapp",
+          "title": "WhatsApp bookings",
+          "description": "Booking buttons that open WhatsApp with the message already written: service, time and details. You get leads that are ready to book."
+        },
+        {
+          "icon": "instagram",
+          "title": "Social integration",
+          "description": "Instagram feed, links to Facebook and TikTok, and Google reviews. Recent activity shows visitors the business is alive."
+        },
+        {
+          "icon": "map-pin",
+          "title": "Map and location",
+          "description": "Embedded map, address, directions, parking and opening hours. With direct links to Google Maps and Waze."
+        },
+        {
+          "icon": "pages",
+          "title": "Multiple pages",
+          "description": "One page per topic: services, team, facilities, prices, contact and blog. Each one ranks on its own in search engines."
+        },
+        {
+          "icon": "wallet",
+          "title": "Detailed pricing",
+          "description": "Price tables, ranges or packages with what each one includes. You filter leads before the first conversation."
+        },
+        {
+          "icon": "package",
+          "title": "Services and packages",
+          "description": "Every service with its description, duration, who it is for and what result it gives. No vague lists that say nothing."
+        },
+        {
+          "icon": "users",
+          "title": "Team and testimonials",
+          "description": "Team profiles with experience and certifications, plus real client testimonials. That is what builds trust before contact."
+        },
+        {
+          "icon": "layout",
+          "title": "Forms and quoters",
+          "description": "Contact forms, short quoters and downloads. Every submission reaches your inbox and WhatsApp."
+        }
+      ]
     },
     "designedFor": {
       "title": "Designed For Businesses That Sell Services",
@@ -183,7 +320,12 @@
         "answer": "Yes. If you choose a custom domain, you own it fully. You can transfer it, move it, or use it elsewhere anytime. If you start with a free rslink.mx subdomain and later want your own domain, we can migrate it seamlessly."
       }
     ],
-    "seoKeywords": ["landing pages", "websites for service businesses", "service business websites", "landing page design"],
+    "seoKeywords": [
+      "landing pages",
+      "websites for service businesses",
+      "service business websites",
+      "landing page design"
+    ],
     "meta": {
       "title": "Landing pages and websites for service businesses | RS Studio",
       "description": "We design websites and landing pages for service businesses. Present your services, build trust, and get more qualified leads. Fast, optimized, and ready to convert."
@@ -243,7 +385,12 @@
         "answer": "Yes. WooCommerce supports everything from small catalogs to thousands of products and orders."
       }
     ],
-    "seoKeywords": ["WordPress ecommerce", "WooCommerce development", "online store development", "ecommerce website"],
+    "seoKeywords": [
+      "WordPress ecommerce",
+      "WooCommerce development",
+      "online store development",
+      "ecommerce website"
+    ],
     "meta": {
       "title": "Online stores with WordPress — RS Studio",
       "description": "We build WooCommerce ecommerce: catalog, payments, shipping and coupons, ready to sell online securely."
@@ -275,12 +422,30 @@
           "required": true,
           "label": "What type of business do you have?",
           "options": [
-            { "id": "food", "label": "Restaurants & Food" },
-            { "id": "beauty", "label": "Beauty & Aesthetics (Spa, Barbershop, Salon, Nails & Eyebrows, etc.)" },
-            { "id": "workshop", "label": "Workshop (Auto, Electrical, etc)" },
-            { "id": "consulting", "label": "Consulting (Legal, Financial, Real Estate)" },
-            { "id": "medical", "label": "Medical services (Private practice, Nutrition, Dental, Psychological care)" },
-            { "id": "fitness", "label": "Fitness (Gym, Crossfit, Pilates, Personal training)" },
+            {
+              "id": "food",
+              "label": "Restaurants & Food"
+            },
+            {
+              "id": "beauty",
+              "label": "Beauty & Aesthetics (Spa, Barbershop, Salon, Nails & Eyebrows, etc.)"
+            },
+            {
+              "id": "workshop",
+              "label": "Workshop (Auto, Electrical, etc)"
+            },
+            {
+              "id": "consulting",
+              "label": "Consulting (Legal, Financial, Real Estate)"
+            },
+            {
+              "id": "medical",
+              "label": "Medical services (Private practice, Nutrition, Dental, Psychological care)"
+            },
+            {
+              "id": "fitness",
+              "label": "Fitness (Gym, Crossfit, Pilates, Personal training)"
+            },
             {
               "id": "other",
               "label": "Other",
@@ -295,10 +460,22 @@
           "required": true,
           "label": "What's your biggest operational headache?",
           "options": [
-            { "id": "financial", "label": "Financial control (income, expenses, collections)" },
-            { "id": "inventory", "label": "Inventory and purchasing" },
-            { "id": "staff", "label": "Staff management and payroll" },
-            { "id": "reporting", "label": "Reports and data for decisions" },
+            {
+              "id": "financial",
+              "label": "Financial control (income, expenses, collections)"
+            },
+            {
+              "id": "inventory",
+              "label": "Inventory and purchasing"
+            },
+            {
+              "id": "staff",
+              "label": "Staff management and payroll"
+            },
+            {
+              "id": "reporting",
+              "label": "Reports and data for decisions"
+            },
             {
               "id": "other",
               "label": "Other",
@@ -313,10 +490,23 @@
           "required": true,
           "label": "How do you currently track your business?",
           "options": [
-            { "id": "spreadsheets", "label": "Spreadsheets" },
-            { "id": "notebooks", "label": "Notebooks or paper" },
-            { "id": "multiple-apps", "label": "Several separate apps" },
-            { "id": "none", "label": "Nothing, I keep it in my head", "exclusive": true },
+            {
+              "id": "spreadsheets",
+              "label": "Spreadsheets"
+            },
+            {
+              "id": "notebooks",
+              "label": "Notebooks or paper"
+            },
+            {
+              "id": "multiple-apps",
+              "label": "Several separate apps"
+            },
+            {
+              "id": "none",
+              "label": "Nothing, I keep it in my head",
+              "exclusive": true
+            },
             {
               "id": "other",
               "label": "Other",
@@ -409,7 +599,14 @@
         "answer": "Yes. We can connect appointment reminders or follow-ups directly through WhatsApp."
       }
     ],
-    "seoKeywords": ["custom CRM", "ERP software", "appointment booking system", "business automation", "business management tool", "software to manage my business"],
+    "seoKeywords": [
+      "custom CRM",
+      "ERP software",
+      "appointment booking system",
+      "business automation",
+      "business management tool",
+      "software to manage my business"
+    ],
     "meta": {
       "title": "Business management tool — RS Studio",
       "description": "Centralize sales, purchases, customers and appointments in one custom tool built for your business."
@@ -472,7 +669,12 @@
         "answer": "Once the strategy is defined, campaigns are usually live in under a week."
       }
     ],
-    "seoKeywords": ["Meta Ads management", "Google Ads management", "digital marketing services", "PPC campaign management"],
+    "seoKeywords": [
+      "Meta Ads management",
+      "Google Ads management",
+      "digital marketing services",
+      "PPC campaign management"
+    ],
     "meta": {
       "title": "Digital marketing — RS Studio",
       "description": "We manage Meta Ads and Google Ads campaigns to generate leads and improve your return on investment."

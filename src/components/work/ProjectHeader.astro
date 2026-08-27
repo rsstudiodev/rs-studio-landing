@@ -1,6 +1,6 @@
 ---
 import i18n from "i18next";
-import { sectionHref } from "@/i18n/routing";
+import RidgeBand from "@/components/RidgeBand.astro";
 import type { Project } from "@/content/projects";
 
 interface Props {
@@ -8,7 +8,6 @@ interface Props {
 }
 
 const { project } = Astro.props;
-const backHref = sectionHref(Astro.url.pathname, "#work");
 const isExternal = Boolean(project.href?.startsWith("http"));
 
 const meta = [
@@ -21,21 +20,13 @@ const meta = [
 ];
 ---
 
-<section class="relative isolate bg-paper px-gutter pt-10 pb-heading">
+<section
+  class="relative isolate overflow-hidden bg-paper px-gutter pt-hero-top pb-hero-bottom"
+>
+  <RidgeBand class="absolute inset-x-0 bottom-0 -z-10 h-[40%] w-full" />
+
   <div class="relative mx-auto w-full max-w-content">
-    <a
-      href={backHref}
-      class="group inline-flex items-center gap-2 text-lead-sm text-graphite transition-colors duration-200 hover:text-ink"
-    >
-      <span
-        aria-hidden="true"
-        class="text-moss transition-transform duration-200 group-hover:-translate-x-1"
-      >
-        &#8592;
-      </span>
-      {i18n.t("projectPage.back")}
-    </a>
-    <h1 class="mt-hero-top max-w-[18ch] text-display display-face text-balance">{project.title}</h1>
+    <h1 class="max-w-[20ch] text-display display-face text-balance">{project.title}</h1>
     <p class="mt-lead max-w-prose text-lead text-pretty text-graphite">
       {project.brief_description}
     </p>

@@ -6,7 +6,7 @@ import ServiceBenefits from "./ServiceBenefits.astro";
 import ServiceDeliverables from "./ServiceDeliverables.astro";
 import ServicePainPoints from "./ServicePainPoints.astro";
 import ServiceDomainOptions from "./ServiceDomainOptions.astro";
-import ServiceTrust from "./ServiceTrust.astro";
+import ServiceShowcase from "./ServiceShowcase.astro";
 import ServiceDesignedFor from "./ServiceDesignedFor.astro";
 import ServiceProcess from "./ServiceProcess.astro";
 import ServiceFaq from "./ServiceFaq.astro";
@@ -45,7 +45,12 @@ type Service = {
     whatsappTemplate: string;
     questions: QuoterQuestion[];
   };
-  trust?: { title: string; body: string; items: string[]; quote: string };
+  showcase?: {
+    title: string;
+    intro: string;
+    demos: { image: string; name: string; tagline: string; url: string; description: string; tags: string[] }[];
+    capabilities: { icon: string; title: string; description: string }[];
+  };
   designedFor?: { title: string; items: string[] };
   process: { title: string; body: string }[];
   faq: { question: string; answer: string }[];
@@ -78,8 +83,8 @@ const deliverablesBg = bg;
 if (showDeliverables) bg = nextBg(bg);
 const domainOptionsBg = bg;
 if (service.domainOptions) bg = nextBg(bg);
-const trustBg = bg;
-if (service.trust) bg = nextBg(bg);
+const showcaseBg = bg;
+if (service.showcase) bg = nextBg(bg);
 const designedForBg = bg;
 if (showDesignedFor) bg = nextBg(bg);
 const processBg = bg;
@@ -93,7 +98,7 @@ const faqBg = bg;
 {service.quoter && <ServiceQuoter {...service.quoter} background={quoterBg} />}
 {showDeliverables && <ServiceDeliverables deliverables={service.deliverables} background={deliverablesBg} />}
 {service.domainOptions && <ServiceDomainOptions {...service.domainOptions} background={domainOptionsBg} />}
-{service.trust && <ServiceTrust {...service.trust} background={trustBg} />}
+{service.showcase && <ServiceShowcase {...service.showcase} background={showcaseBg} />}
 {showDesignedFor && <ServiceDesignedFor {...service.designedFor} background={designedForBg} />}
 <ServiceProcess process={service.process} background={processBg} />
 <ServiceFaq faq={service.faq} background={faqBg} />

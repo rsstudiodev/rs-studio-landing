@@ -104,7 +104,6 @@
     "benefitsLabel": "Benefits",
     "deliverablesLabel": "What we build",
     "domainOptionsLabel": "Domain options",
-    "trustLabel": "Trust",
     "designedForLabel": "Designed for",
     "processLabel": "Our process",
     "processMeta": "Four steps",
@@ -128,11 +127,26 @@
           "required": true,
           "label": "What kind of project do you have in mind?",
           "options": [
-            { "id": "landing-page", "label": "Landing page" },
-            { "id": "online-store", "label": "Online store" },
-            { "id": "management-tool", "label": "Business management tool" },
-            { "id": "digital-marketing", "label": "Digital marketing" },
-            { "id": "not-sure", "label": "Not sure yet" }
+            {
+              "id": "landing-page",
+              "label": "Landing page"
+            },
+            {
+              "id": "online-store",
+              "label": "Online store"
+            },
+            {
+              "id": "management-tool",
+              "label": "Business management tool"
+            },
+            {
+              "id": "digital-marketing",
+              "label": "Digital marketing"
+            },
+            {
+              "id": "not-sure",
+              "label": "Not sure yet"
+            }
           ]
         },
         {
@@ -141,10 +155,22 @@
           "required": true,
           "label": "What's your main goal?",
           "options": [
-            { "id": "more-customers", "label": "Get more customers" },
-            { "id": "automate", "label": "Automate internal processes" },
-            { "id": "modernize", "label": "Modernize my online presence" },
-            { "id": "sell-online", "label": "Sell online" },
+            {
+              "id": "more-customers",
+              "label": "Get more customers"
+            },
+            {
+              "id": "automate",
+              "label": "Automate internal processes"
+            },
+            {
+              "id": "modernize",
+              "label": "Modernize my online presence"
+            },
+            {
+              "id": "sell-online",
+              "label": "Sell online"
+            },
             {
               "id": "other",
               "label": "Other",

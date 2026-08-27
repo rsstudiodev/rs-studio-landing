@@ -25,12 +25,30 @@
           "required": true,
           "label": "¿Qué tipo de negocio tienes?",
           "options": [
-            { "id": "food", "label": "Restaurantes y alimentos" },
-            { "id": "beauty", "label": "Belleza y estética (Spa, Barbería, Salón, Uñas y Cejas, etc.)" },
-            { "id": "workshop", "label": "Taller (Mecánico, Eléctrico, etc)" },
-            { "id": "consulting", "label": "Consultoría (Legal, Financiera, Bienes raíces)" },
-            { "id": "medical", "label": "Servicios médicos (Consulta privada, Nutrición, Dentista, Atención psicológica)" },
-            { "id": "fitness", "label": "Fitness (Gimnasio, Crossfit, Pilates, Entrenamientos personalizados)" },
+            {
+              "id": "food",
+              "label": "Restaurantes y alimentos"
+            },
+            {
+              "id": "beauty",
+              "label": "Belleza y estética (Spa, Barbería, Salón, Uñas y Cejas, etc.)"
+            },
+            {
+              "id": "workshop",
+              "label": "Taller (Mecánico, Eléctrico, etc)"
+            },
+            {
+              "id": "consulting",
+              "label": "Consultoría (Legal, Financiera, Bienes raíces)"
+            },
+            {
+              "id": "medical",
+              "label": "Servicios médicos (Consulta privada, Nutrición, Dentista, Atención psicológica)"
+            },
+            {
+              "id": "fitness",
+              "label": "Fitness (Gimnasio, Crossfit, Pilates, Entrenamientos personalizados)"
+            },
             {
               "id": "other",
               "label": "Otro",
@@ -45,11 +63,26 @@
           "required": true,
           "label": "¿Cuáles son tus principales desafíos?",
           "options": [
-            { "id": "customers", "label": "Conseguir más clientes" },
-            { "id": "trust", "label": "Mostrar confianza" },
-            { "id": "filter", "label": "Filtrar clientes" },
-            { "id": "schedule", "label": "Agendar citas" },
-            { "id": "prices", "label": "Mostrar precios" }
+            {
+              "id": "customers",
+              "label": "Conseguir más clientes"
+            },
+            {
+              "id": "trust",
+              "label": "Mostrar confianza"
+            },
+            {
+              "id": "filter",
+              "label": "Filtrar clientes"
+            },
+            {
+              "id": "schedule",
+              "label": "Agendar citas"
+            },
+            {
+              "id": "prices",
+              "label": "Mostrar precios"
+            }
           ]
         },
         {
@@ -58,13 +91,35 @@
           "required": true,
           "label": "¿Qué activos digitales ya tienes?",
           "options": [
-            { "id": "logo", "label": "Logo, colores, identidad gráfica" },
-            { "id": "photos", "label": "Fotos de calidad" },
-            { "id": "instagram", "label": "Cuenta Instagram" },
-            { "id": "gmaps", "label": "Perfil Google Maps" },
-            { "id": "menu", "label": "Menús/Catálogo" },
-            { "id": "testimonials", "label": "Testimonios" },
-            { "id": "none", "label": "Ninguno", "exclusive": true },
+            {
+              "id": "logo",
+              "label": "Logo, colores, identidad gráfica"
+            },
+            {
+              "id": "photos",
+              "label": "Fotos de calidad"
+            },
+            {
+              "id": "instagram",
+              "label": "Cuenta Instagram"
+            },
+            {
+              "id": "gmaps",
+              "label": "Perfil Google Maps"
+            },
+            {
+              "id": "menu",
+              "label": "Menús/Catálogo"
+            },
+            {
+              "id": "testimonials",
+              "label": "Testimonios"
+            },
+            {
+              "id": "none",
+              "label": "Ninguno",
+              "exclusive": true
+            },
             {
               "id": "other",
               "label": "Otros",
@@ -96,8 +151,14 @@
           "Registra tu propio dominio (mirestaurante.com, miclínica.mx, tu-nombre.services)"
         ],
         "examples": [
-          { "label": "mi-restaurante.com", "href": "https://mi-restaurante.com" },
-          { "label": "super-gimnasio.mx", "href": "https://super-gimnasio.mx" }
+          {
+            "label": "mi-restaurante.com",
+            "href": "https://mi-restaurante.com"
+          },
+          {
+            "label": "super-gimnasio.mx",
+            "href": "https://super-gimnasio.mx"
+          }
         ]
       },
       "subdomain": {
@@ -108,23 +169,99 @@
           "Te ayudamos a decidir cuál se adapta mejor a tu modelo de negocio durante la fase de descubrimiento"
         ],
         "examples": [
-          { "label": "mi-restaurante.rslink.mx", "href": "https://mi-restaurante.rslink.mx" },
-          { "label": "super-gimnasio.rslink.mx", "href": "https://rsstudiodev.github.io/super-gimnasio/" }
+          {
+            "label": "mi-restaurante.rslink.mx",
+            "href": "https://mi-restaurante.rslink.mx"
+          },
+          {
+            "label": "super-gimnasio.rslink.mx",
+            "href": "https://rsstudiodev.github.io/super-gimnasio/"
+          }
         ]
       }
     },
-    "trust": {
-      "title": "Genera confianza antes de la primera conversación",
-      "body": "Un negocio de servicios no vende un producto. Se vende a sí mismo. Antes de contactarte, un cliente potencial quiere saber si sabes lo que haces.",
-      "items": [
-        "Testimonios de clientes",
-        "Años de experiencia o número de negocios atendidos",
-        "Casos o proyectos reales",
-        "Certificaciones o especialidades",
-        "Tiempo de respuesta",
-        "Tu proceso de trabajo"
+    "showcase": {
+      "title": "¿Qué podemos construir para ti?",
+      "intro": "Estos son dos sitios de demostración que construimos para mostrar cómo se ve el resultado. Ábrelos, navégalos y pide el tuyo con las secciones que tu negocio necesita.",
+      "demos": [
+        {
+          "image": "idiomas",
+          "name": "Idiomas del Futuro",
+          "tagline": "Escuela de idiomas · demo",
+          "url": "https://idiomas-futuro.rsstudiodev-gma.workers.dev/",
+          "description": "Sitio de una escuela de idiomas. Muestra los próximos inicios de curso con lugares disponibles, los programas por nivel, los planes con precio, el feed de Instagram, los testimonios de alumnos y el mapa de la sede. El botón de reserva abre WhatsApp con el mensaje ya escrito.",
+          "tags": [
+            "Calendario de cursos",
+            "Planes y precios",
+            "Instagram",
+            "Testimonios",
+            "Mapa",
+            "Reserva por WhatsApp"
+          ]
+        },
+        {
+          "image": "gimnasio",
+          "name": "Super Gimnasio",
+          "tagline": "Escuela de box · demo",
+          "url": "https://rsstudiodev.github.io/super-gimnasio/",
+          "description": "Sitio de un gimnasio con varias páginas: clases, horarios semanales, entrenadores, instalaciones y membresías. Cada membresía muestra qué incluye y cuánto cuesta. El botón flotante de WhatsApp agenda la primera clase desde cualquier página.",
+          "tags": [
+            "Múltiples páginas",
+            "Horarios",
+            "Membresías",
+            "Equipo",
+            "Galería",
+            "WhatsApp fijo"
+          ]
+        }
       ],
-      "quote": "La mayoría de los visitantes decide si confía en un negocio en cuestión de segundos. Tu sitio debe facilitar esa decisión."
+      "capabilities": [
+        {
+          "icon": "calendar",
+          "title": "Calendarios y horarios",
+          "description": "Horarios de clases, próximos inicios, disponibilidad por día y lugares restantes. El visitante ve cuándo puede llegar sin escribirte."
+        },
+        {
+          "icon": "whatsapp",
+          "title": "Reservaciones por WhatsApp",
+          "description": "Botones de reserva que abren WhatsApp con el mensaje ya escrito: servicio, horario y datos. Recibes contactos listos para agendar."
+        },
+        {
+          "icon": "instagram",
+          "title": "Integración de redes",
+          "description": "Feed de Instagram, enlaces a Facebook y TikTok, y reseñas de Google. Tu actividad reciente da señal de que el negocio está vivo."
+        },
+        {
+          "icon": "map-pin",
+          "title": "Mapa y ubicación",
+          "description": "Mapa integrado, dirección, referencias para llegar, estacionamiento y horario de atención. Con enlace directo a Google Maps y a Waze."
+        },
+        {
+          "icon": "pages",
+          "title": "Múltiples páginas",
+          "description": "Una página por tema: servicios, equipo, instalaciones, precios, contacto y blog. Cada una se posiciona por su cuenta en buscadores."
+        },
+        {
+          "icon": "wallet",
+          "title": "Precios detallados",
+          "description": "Tablas de precios, rangos o paquetes con lo que incluye cada uno. Filtras contactos antes de la primera conversación."
+        },
+        {
+          "icon": "package",
+          "title": "Servicios y paquetes",
+          "description": "Cada servicio con su descripción, duración, para quién es y qué resultado da. Sin listas vagas que no dicen nada."
+        },
+        {
+          "icon": "users",
+          "title": "Equipo y testimonios",
+          "description": "Perfiles del equipo con experiencia y certificaciones, más testimonios reales de clientes. Es lo que genera confianza antes del contacto."
+        },
+        {
+          "icon": "layout",
+          "title": "Formularios y cotizadores",
+          "description": "Formularios de contacto, cotizadores de pocos pasos y descargas. Cada envío llega a tu correo y a WhatsApp."
+        }
+      ]
     },
     "designedFor": {
       "title": "Diseñado para negocios que venden servicios",
@@ -183,7 +320,12 @@
         "answer": "Sí. Si eliges un dominio personalizado, lo posees completamente. Puedes transferirlo, moverlo, o usarlo en otro lugar cuando quieras. Si comienzas con un subdominio rslink.mx gratis y luego quieres tu propio dominio, podemos migrarlo sin problemas."
       }
     ],
-    "seoKeywords": ["landing pages", "sitios web para negocios de servicios", "diseño de landing pages", "generación de contactos"],
+    "seoKeywords": [
+      "landing pages",
+      "sitios web para negocios de servicios",
+      "diseño de landing pages",
+      "generación de contactos"
+    ],
     "meta": {
       "title": "Landing pages y sitios web para negocios de servicios | RS Studio",
       "description": "Diseñamos sitios web y landing pages para negocios de servicios. Presenta tus servicios, genera confianza y consigue más contactos calificados. Rápidos, optimizados y listos para convertir."
@@ -243,7 +385,12 @@
         "answer": "Sí. WooCommerce soporta desde catálogos pequeños hasta miles de productos y pedidos."
       }
     ],
-    "seoKeywords": ["tienda en línea WordPress", "WooCommerce México", "ecommerce WordPress", "desarrollo de tiendas online"],
+    "seoKeywords": [
+      "tienda en línea WordPress",
+      "WooCommerce México",
+      "ecommerce WordPress",
+      "desarrollo de tiendas online"
+    ],
     "meta": {
       "title": "Tiendas online con WordPress — RS Studio",
       "description": "Desarrollamos e-commerce con WooCommerce: catálogo, pagos, envíos y cupones, listo para vender en línea de forma segura."
@@ -275,12 +422,30 @@
           "required": true,
           "label": "¿Qué tipo de negocio tienes?",
           "options": [
-            { "id": "food", "label": "Restaurantes y alimentos" },
-            { "id": "beauty", "label": "Belleza y estética (Spa, Barbería, Salón, Uñas y Cejas, etc.)" },
-            { "id": "workshop", "label": "Taller (Mecánico, Eléctrico, etc)" },
-            { "id": "consulting", "label": "Consultoría (Legal, Financiera, Bienes raíces)" },
-            { "id": "medical", "label": "Servicios médicos (Consulta privada, Nutrición, Dentista, Atención psicológica)" },
-            { "id": "fitness", "label": "Fitness (Gimnasio, Crossfit, Pilates, Entrenamientos personalizados)" },
+            {
+              "id": "food",
+              "label": "Restaurantes y alimentos"
+            },
+            {
+              "id": "beauty",
+              "label": "Belleza y estética (Spa, Barbería, Salón, Uñas y Cejas, etc.)"
+            },
+            {
+              "id": "workshop",
+              "label": "Taller (Mecánico, Eléctrico, etc)"
+            },
+            {
+              "id": "consulting",
+              "label": "Consultoría (Legal, Financiera, Bienes raíces)"
+            },
+            {
+              "id": "medical",
+              "label": "Servicios médicos (Consulta privada, Nutrición, Dentista, Atención psicológica)"
+            },
+            {
+              "id": "fitness",
+              "label": "Fitness (Gimnasio, Crossfit, Pilates, Entrenamientos personalizados)"
+            },
             {
               "id": "other",
               "label": "Otro",
@@ -295,10 +460,22 @@
           "required": true,
           "label": "¿Cuál es tu mayor dolor de cabeza operativo?",
           "options": [
-            { "id": "financial", "label": "Control financiero (ingresos, gastos, cobros)" },
-            { "id": "inventory", "label": "Inventario y compras" },
-            { "id": "staff", "label": "Gestión de equipo y nómina" },
-            { "id": "reporting", "label": "Reportes y datos para decidir" },
+            {
+              "id": "financial",
+              "label": "Control financiero (ingresos, gastos, cobros)"
+            },
+            {
+              "id": "inventory",
+              "label": "Inventario y compras"
+            },
+            {
+              "id": "staff",
+              "label": "Gestión de equipo y nómina"
+            },
+            {
+              "id": "reporting",
+              "label": "Reportes y datos para decidir"
+            },
             {
               "id": "other",
               "label": "Otro",
@@ -313,10 +490,23 @@
           "required": true,
           "label": "¿Cómo llevas el control de tu negocio hoy?",
           "options": [
-            { "id": "spreadsheets", "label": "Hojas de cálculo" },
-            { "id": "notebooks", "label": "Cuadernos o papel" },
-            { "id": "multiple-apps", "label": "Varias aplicaciones sueltas" },
-            { "id": "none", "label": "Nada, lo llevo de memoria", "exclusive": true },
+            {
+              "id": "spreadsheets",
+              "label": "Hojas de cálculo"
+            },
+            {
+              "id": "notebooks",
+              "label": "Cuadernos o papel"
+            },
+            {
+              "id": "multiple-apps",
+              "label": "Varias aplicaciones sueltas"
+            },
+            {
+              "id": "none",
+              "label": "Nada, lo llevo de memoria",
+              "exclusive": true
+            },
             {
               "id": "other",
               "label": "Otro",
@@ -409,7 +599,14 @@
         "answer": "Sí. Podemos conectar recordatorios de citas o seguimientos directamente por WhatsApp."
       }
     ],
-    "seoKeywords": ["CRM personalizado", "ERP para empresas", "sistema de citas", "automatización de procesos", "herramienta de control empresarial", "software para administrar mi negocio"],
+    "seoKeywords": [
+      "CRM personalizado",
+      "ERP para empresas",
+      "sistema de citas",
+      "automatización de procesos",
+      "herramienta de control empresarial",
+      "software para administrar mi negocio"
+    ],
     "meta": {
       "title": "Herramienta de control empresarial — RS Studio",
       "description": "Centraliza ventas, compras, clientes y citas en una sola herramienta hecha a la medida de tu negocio."
@@ -472,7 +669,12 @@
         "answer": "Una vez definida la estrategia, las campañas suelen estar activas en menos de una semana."
       }
     ],
-    "seoKeywords": ["Meta Ads", "Google Ads", "administración de campañas", "marketing digital para negocios"],
+    "seoKeywords": [
+      "Meta Ads",
+      "Google Ads",
+      "administración de campañas",
+      "marketing digital para negocios"
+    ],
     "meta": {
       "title": "Marketing digital — RS Studio",
       "description": "Administramos campañas en Meta Ads y Google Ads para generar clientes potenciales y mejorar tu retorno de inversión."

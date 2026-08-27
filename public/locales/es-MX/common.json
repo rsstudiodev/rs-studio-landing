@@ -104,7 +104,6 @@
     "benefitsLabel": "Beneficios",
     "deliverablesLabel": "Qué construimos",
     "domainOptionsLabel": "Opciones de dominio",
-    "trustLabel": "Confianza",
     "designedForLabel": "Diseñado para",
     "processLabel": "Nuestro proceso",
     "processMeta": "Cuatro pasos",
@@ -128,11 +127,26 @@
           "required": true,
           "label": "¿Qué tipo de proyecto tienes en mente?",
           "options": [
-            { "id": "landing-page", "label": "Landing page" },
-            { "id": "online-store", "label": "Tienda online" },
-            { "id": "management-tool", "label": "Herramienta de control empresarial" },
-            { "id": "digital-marketing", "label": "Marketing digital" },
-            { "id": "not-sure", "label": "No estoy seguro" }
+            {
+              "id": "landing-page",
+              "label": "Landing page"
+            },
+            {
+              "id": "online-store",
+              "label": "Tienda online"
+            },
+            {
+              "id": "management-tool",
+              "label": "Herramienta de control empresarial"
+            },
+            {
+              "id": "digital-marketing",
+              "label": "Marketing digital"
+            },
+            {
+              "id": "not-sure",
+              "label": "No estoy seguro"
+            }
           ]
         },
         {
@@ -141,10 +155,22 @@
           "required": true,
           "label": "¿Cuál es tu objetivo principal?",
           "options": [
-            { "id": "more-customers", "label": "Conseguir más clientes" },
-            { "id": "automate", "label": "Automatizar procesos internos" },
-            { "id": "modernize", "label": "Modernizar mi presencia online" },
-            { "id": "sell-online", "label": "Vender en línea" },
+            {
+              "id": "more-customers",
+              "label": "Conseguir más clientes"
+            },
+            {
+              "id": "automate",
+              "label": "Automatizar procesos internos"
+            },
+            {
+              "id": "modernize",
+              "label": "Modernizar mi presencia online"
+            },
+            {
+              "id": "sell-online",
+              "label": "Vender en línea"
+            },
             {
               "id": "other",
               "label": "Otro",

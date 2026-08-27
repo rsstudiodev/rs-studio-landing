@@ -19,6 +19,11 @@ import {
   Clock,
   LineChart,
   UserX,
+  CalendarDays,
+  MapPin,
+  Share2,
+  Files,
+  MessageCircle,
 } from '@lucide/astro';
 
 export type IconName =
@@ -41,7 +46,12 @@ export type IconName =
   | "package"
   | "clock"
   | "line-chart"
-  | "user-x";
+  | "user-x"
+  | "calendar"
+  | "map-pin"
+  | "instagram"
+  | "pages"
+  | "whatsapp";
 
 interface Props {
   name: IconName;
@@ -71,6 +81,11 @@ const icons: Record<IconName, any> = {
   clock: Clock,
   "line-chart": LineChart,
   "user-x": UserX,
+  calendar: CalendarDays,
+  "map-pin": MapPin,
+  instagram: Share2,
+  pages: Files,
+  whatsapp: MessageCircle,
 };
 
 const IconComponent = icons[name];

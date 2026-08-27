@@ -1,0 +1,67 @@
+---
+/*
+ * A still frame of the hero range: the same five layers and the same ridged
+ * fractal noise as heroRidges.ts, sampled once at build time as static SVG
+ * paths. No canvas, no animation, no scroll parallax.
+ */
+interface Props {
+  class?: string;
+}
+
+const { class: className = "" } = Astro.props;
+
+const WIDTH = 1200;
+const HEIGHT = 400;
+const STEP = 6;
+const OCTAVES = 5;
+
+/* Colours and rates mirror LAYERS in heroRidges.ts. The baselines are pulled
+ * up, because this band is shorter than the hero. */
+const LAYERS = [
+  { color: "#b3c98c", alpha: 0.14, base: 0.26, amplitude: 0.2, frequency: 0.0032, phase: 0 },
+  { color: "#6d8f3f", alpha: 0.18, base: 0.44, amplitude: 0.17, frequency: 0.0045, phase: 1.9 },
+  { color: "#3f6b34", alpha: 0.26, base: 0.61, amplitude: 0.14, frequency: 0.0061, phase: 3.4 },
+  { color: "#1e3e27", alpha: 0.36, base: 0.79, amplitude: 0.11, frequency: 0.0084, phase: 5.1 },
+  { color: "#17311e", alpha: 0.48, base: 0.97, amplitude: 0.08, frequency: 0.011, phase: 6.7 },
+];
+
+/* Ridged noise: folding the sine at zero turns hills into peaks. */
+function ridge(x: number, phase: number, frequency: number): number {
+  let value = 0;
+  let weight = 1;
+  let scale = frequency;
+
+  for (let octave = 0; octave < OCTAVES; octave += 1) {
+    value += weight * (1 - Math.abs(Math.sin(x * scale + phase * (octave + 1))));
+    weight *= 0.5;
+    scale *= 2.1;
+  }
+
+  const envelope = 0.62 + 0.5 * Math.sin(x * frequency * 0.21 + phase * 0.4);
+
+  return (value / 1.9375) * envelope;
+}
+
+const paths = LAYERS.map((layer) => {
+  const points: string[] = [];
+
+  for (let x = 0; x <= WIDTH + STEP; x += STEP) {
+    const y = HEIGHT * (layer.base - layer.amplitude * ridge(x, layer.phase, layer.frequency));
+    points.push(`${x} ${Math.round(y * 100) / 100}`);
+  }
+
+  return {
+    ...layer,
+    d: `M${points.join(" L")} L${WIDTH + STEP} ${HEIGHT} L0 ${HEIGHT} Z`,
+  };
+});
+---
+
+<svg
+  aria-hidden="true"
+  viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
+  preserveAspectRatio="none"
+  class={`pointer-events-none select-none ${className}`}
+>
+  {paths.map((layer) => <path d={layer.d} fill={layer.color} fill-opacity={layer.alpha} />)}
+</svg>

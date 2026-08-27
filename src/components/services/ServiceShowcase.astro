@@ -1,0 +1,98 @@
+---
+import SectionHead from "@/components/SectionHead.astro";
+import Icon, { type IconName } from "@/components/Icon.astro";
+import demoIdiomas from "@/assets/demo-idiomas.jpg";
+import demoGimnasio from "@/assets/demo-gimnasio.jpg";
+
+interface Demo {
+  image: string;
+  name: string;
+  tagline: string;
+  url: string;
+  description: string;
+  tags: string[];
+}
+
+interface Capability {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+interface Props {
+  title: string;
+  intro: string;
+  demos: Demo[];
+  capabilities: Capability[];
+  background?: "paper" | "substrate";
+}
+
+const { title, intro, demos, capabilities, background = "paper" } = Astro.props;
+const bgClass = background === "substrate" ? "bg-substrate" : "bg-paper";
+
+const images = { idiomas: demoIdiomas, gimnasio: demoGimnasio };
+---
+
+<section data-reveal class={`relative isolate ${bgClass} px-gutter py-section`}>
+  <div class="relative mx-auto w-full max-w-content">
+    <SectionHead title={title} />
+    <p class="mt-6 max-w-prose text-lead text-pretty text-graphite">{intro}</p>
+
+    <div class="mt-heading grid grid-cols-1 gap-x-grid gap-y-flow md:grid-cols-2">
+      {
+        demos.map((demo) => (
+          <a
+            class="group flex flex-col border border-rule no-underline transition-colors duration-200 hover:border-moss"
+            href={demo.url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="flex items-center gap-2 border-b border-rule bg-substrate px-4 py-3">
+              <span class="h-2 w-2 rounded-full bg-rule" />
+              <span class="h-2 w-2 rounded-full bg-rule" />
+              <span class="h-2 w-2 rounded-full bg-rule" />
+              <span class="ml-2 truncate font-mono text-lead-sm text-mute">
+                {demo.url.replace(/^https?:\/\//, "")}
+              </span>
+            </div>
+
+            <div class="aspect-[4/3] overflow-hidden">
+              <img
+                src={images[demo.image as keyof typeof images].src}
+                width={images[demo.image as keyof typeof images].width}
+                height={images[demo.image as keyof typeof images].height}
+                alt={demo.name}
+                class="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+
+            <div class="flex flex-col p-8">
+              <h3 class="text-lead font-medium text-ink">{demo.name}</h3>
+              <p class="mt-1 text-lead-sm text-mute">{demo.tagline}</p>
+              <p class="mt-4 text-lead-sm text-pretty text-ink-soft">{demo.description}</p>
+              <ul class="m-0 mt-6 flex list-none flex-wrap gap-2 p-0">
+                {demo.tags.map((tag) => (
+                  <li class="border border-rule px-3 py-1 font-mono text-lead-sm text-mute">{tag}</li>
+                ))}
+              </ul>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+
+    <div class="mt-heading grid grid-cols-1 gap-x-grid gap-y-flow sm:grid-cols-2 wide:grid-cols-3">
+      {
+        capabilities.map((capability) => (
+          <div class="border-t border-rule pt-8">
+            <Icon name={capability.icon as IconName} class="h-8 w-8 shrink-0 text-moss" />
+            <h3 class="mt-4 text-lead font-medium text-ink">{capability.title}</h3>
+            <p class="mt-2 text-lead-sm text-pretty text-ink-soft">{capability.description}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

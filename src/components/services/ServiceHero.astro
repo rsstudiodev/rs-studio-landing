@@ -1,6 +1,7 @@
 ---
 import i18n from "i18next";
 import WhatsAppIcon from "@/components/WhatsAppIcon.astro";
+import RidgeBand from "@/components/RidgeBand.astro";
 import CalWidget from "@/components/CalWidget";
 import { whatsappHref } from "@/lib/whatsapp";
 
@@ -13,8 +14,12 @@ interface Props {
 const { title, intro, whatsappMessage } = Astro.props;
 ---
 
-<section class="bg-paper px-gutter pt-hero-top pb-hero-bottom">
-  <div class="mx-auto w-full max-w-content">
+<section
+  class="relative isolate overflow-hidden bg-paper px-gutter pt-hero-top pb-hero-bottom"
+>
+  <RidgeBand class="absolute inset-x-0 bottom-0 -z-10 h-[40%] w-full" />
+
+  <div class="relative mx-auto w-full max-w-content">
     <h1 class="max-w-[20ch] text-display display-face text-balance">{title}</h1>
     <p class="mt-lead max-w-prose text-lead text-pretty text-graphite">{intro}</p>
     <div class="mt-cta flex flex-wrap items-center gap-3">
