@@ -5,7 +5,11 @@
  * page uses. Each ridge is ridged fractal noise — four octaves of folded sine —
  * so the profile peaks instead of rolling. The layers drift at different rates
  * and breathe on a slow cycle, which is what separates them in depth; scroll
- * adds parallax on top of that.
+ * adds parallax on top of that, and calms the whole range down as the reader
+ * leaves the hero behind.
+ *
+ * The clock counts real time, not frames, so the range moves at one speed on a
+ * 60Hz panel and a 120Hz one.
  *
  * The range sits low in the frame on purpose. The title is set over open paper,
  * and the device cluster stands on the front ridge.
@@ -34,6 +38,21 @@ const LAYERS: Layer[] = [
 const OCTAVES = 5;
 const STEP = 4;
 
+/* Milliseconds to clock units: one unit is one frame of a 60Hz panel, which is
+ * what the drift rates above are written in. */
+const TICK = 0.06;
+
+/* The swell cycle, in clock units: peaks rise and settle over about 20s. */
+const SWELL_RATE = 0.0052;
+const SWELL_DEPTH = 0.22;
+
+/* A second, slower wave on the baseline, so the range shifts as well as grows. */
+const SETTLE_RATE = 0.0026;
+const SETTLE_DEPTH = 0.018;
+
+/* How far the range slows once the hero has scrolled away. */
+const CALM = 0.85;
+
 /* Ridged noise: folding the sine at zero turns hills into peaks. */
 function ridge(x: number, phase: number, frequency: number): number {
   let value = 0;
@@ -60,12 +79,11 @@ export function initHeroRidges() {
   const context = canvas.getContext("2d");
   if (!context) return;
 
-  const still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
   let width = 0;
   let height = 0;
   let frame = 0;
   let clock = 0;
+  let last = 0;
   let scroll = 0;
 
   const paint = () => {
@@ -75,10 +93,12 @@ export function initHeroRidges() {
 
     for (const layer of LAYERS) {
       const phase = layer.phase + clock * layer.drift;
-      /* Breathe: the range swells and settles over roughly half a minute. */
-      const swell = 1 + Math.sin(clock * 0.0009 + layer.phase) * 0.12;
+      /* Breathe: peaks grow and shrink on one cycle, the baseline shifts on a
+       * slower one, and each layer runs off its own phase. */
+      const swell = 1 + Math.sin(clock * SWELL_RATE + layer.phase) * SWELL_DEPTH;
+      const settle = Math.sin(clock * SETTLE_RATE + layer.phase * 1.7) * height * SETTLE_DEPTH;
       const amplitude = height * layer.amplitude * swell;
-      const baseline = height * layer.base - scroll * layer.parallax;
+      const baseline = height * layer.base + settle - scroll * layer.parallax;
 
       context.beginPath();
       context.moveTo(0, height);
@@ -113,15 +133,29 @@ export function initHeroRidges() {
     paint();
   };
 
-  const draw = () => {
+  const draw = (now: number) => {
     frame = requestAnimationFrame(draw);
-    clock += 1;
+
     scroll = window.scrollY;
+
+    /* Calm: the range all but stops once the hero is off the screen. Slowing the
+     * clock itself holds the phase, so it picks up where it left off. */
+    const past = height === 0 ? 0 : Math.min(scroll / height, 1);
+    const calm = 1 - CALM * past;
+
+    /* Cap the step so a backgrounded tab does not jump the range on return. */
+    const elapsed = last === 0 ? 0 : Math.min(now - last, 100);
+    last = now;
+    clock += elapsed * TICK * calm;
+
     paint();
   };
 
   const start = () => {
-    if (!still && frame === 0) frame = requestAnimationFrame(draw);
+    if (frame === 0) {
+      last = 0;
+      frame = requestAnimationFrame(draw);
+    }
   };
 
   const stop = () => {

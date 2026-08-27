@@ -1,6 +1,7 @@
 ---
 import i18n from "i18next";
 import WhatsAppIcon from "@/components/WhatsAppIcon.astro";
+import CalWidget from "@/components/CalWidget";
 import { whatsappHref } from "@/lib/whatsapp";
 
 interface Props {
@@ -10,23 +11,30 @@ interface Props {
 }
 
 const { title, intro, whatsappMessage } = Astro.props;
-const email = i18n.t("contact.email");
 ---
 
-<section class="relative isolate bg-paper px-gutter pt-10 pb-heading">
-  <div class="relative mx-auto w-full max-w-content">
-    <h1 class="max-w-[18ch] text-display display-face text-balance">{title}</h1>
-    <p class="mt-lead max-w-prose text-lead text-pretty text-graphite">
-      {intro}
-    </p>
-    <a
-      href={whatsappHref(whatsappMessage)}
-      target="_blank"
-      rel="noopener noreferrer"
-      class="group mt-cta inline-flex min-h-12 items-center gap-2.5 bg-moss px-6 py-3.5 text-paper transition-colors duration-200 hover:bg-pine active:scale-[0.99]"
-    >
-      <WhatsAppIcon class="h-4.5 w-4.5" />
-      <span class="text-lead-sm font-medium">{i18n.t("cta.requestProposal")}</span>
-    </a>
+<section class="bg-paper px-gutter pt-hero-top pb-hero-bottom">
+  <div class="mx-auto w-full max-w-content">
+    <h1 class="max-w-[20ch] text-display display-face text-balance">{title}</h1>
+    <p class="mt-lead max-w-prose text-lead text-pretty text-graphite">{intro}</p>
+    <div class="mt-cta flex flex-wrap items-center gap-3">
+      <a
+        href={whatsappHref(whatsappMessage)}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex min-h-12 items-center gap-2.5 bg-moss px-6 py-3.5 text-paper transition-colors duration-200 hover:bg-pine active:scale-[0.99]"
+      >
+        <WhatsAppIcon class="h-4.5 w-4.5" />
+        <span class="text-lead-sm font-medium">{i18n.t("cta.requestProposal")}</span>
+      </a>
+      <CalWidget
+        client:idle
+        eventSlug="rs-studio/descubrimiento"
+        triggerLabel={i18n.t("quoter.scheduleCall")}
+        mode="popup"
+        theme={{ brandColor: "#000000", borderRadius: 0 }}
+        className="inline-flex min-h-12 items-center border border-rule px-6 py-3.5 text-lead-sm font-medium text-graphite transition-colors duration-200 hover:border-moss hover:text-moss"
+      />
+    </div>
   </div>
 </section>

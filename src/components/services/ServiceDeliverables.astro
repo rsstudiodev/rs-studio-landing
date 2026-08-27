@@ -1,5 +1,4 @@
 ---
-
 interface Props {
   deliverables: string[];
   background?: "paper" | "substrate";
@@ -9,10 +8,12 @@ const { deliverables, background = "substrate" } = Astro.props;
 const bgClass = background === "paper" ? "bg-paper" : "bg-substrate";
 ---
 
-<section data-reveal class={`relative isolate ${bgClass} px-gutter py-section`}>
-  <div class="relative mx-auto w-full max-w-content">
-    <ul class="m-0 border-t border-rule pt-6 grid list-none grid-cols-1 gap-x-grid gap-y-2 p-0 sm:grid-cols-2 wide:grid-cols-3">
-      {deliverables.map((item) => <li class="text-lead-sm text-ink-soft">{item}</li>)}
-    </ul>
-  </div>
+<section data-reveal class={`${bgClass} px-gutter py-section`}>
+  <ul class="mx-auto m-0 grid w-full max-w-content list-none grid-cols-1 gap-x-grid p-0 sm:grid-cols-2 wide:grid-cols-3">
+    {
+      deliverables.map((item) => (
+        <li class="border-t border-rule py-5 text-lead-sm text-pretty text-ink-soft">{item}</li>
+      ))
+    }
+  </ul>
 </section>

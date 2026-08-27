@@ -10,7 +10,6 @@ import ServiceTrust from "./ServiceTrust.astro";
 import ServiceDesignedFor from "./ServiceDesignedFor.astro";
 import ServiceProcess from "./ServiceProcess.astro";
 import ServiceFaq from "./ServiceFaq.astro";
-import ServiceFinalCta from "./ServiceFinalCta.astro";
 import ServiceSchema from "./ServiceSchema.astro";
 import ServiceQuoter from "./ServiceQuoter.astro";
 import { servicePath, type ServiceKey } from "@/i18n/routing";
@@ -61,9 +60,10 @@ const service = i18n.t(serviceKey, { ns: "services", returnObjects: true }) as u
 const path = servicePath(serviceKey);
 const url = Astro.site ? new URL(path, Astro.site).href : path;
 
-// landingPages hides Deliverables and DesignedFor; other services keep them.
+// landingPages hides Deliverables and DesignedFor; businessManagementTool hides
+// Deliverables. Other services keep them.
 const isLandingPages = serviceKey === "landingPages";
-const showDeliverables = !isLandingPages;
+const showDeliverables = !isLandingPages && serviceKey !== "businessManagementTool";
 const showDesignedFor = !isLandingPages && !!service.designedFor;
 
 // Benefits (paper) is always the last fixed-background section before this
@@ -85,8 +85,6 @@ if (showDesignedFor) bg = nextBg(bg);
 const processBg = bg;
 bg = nextBg(bg);
 const faqBg = bg;
-bg = nextBg(bg);
-const finalCtaBg = bg;
 ---
 
 <ServiceHero title={service.title} intro={service.intro} whatsappMessage={service.whatsappMessage} />
@@ -99,5 +97,4 @@ const finalCtaBg = bg;
 {showDesignedFor && <ServiceDesignedFor {...service.designedFor} background={designedForBg} />}
 <ServiceProcess process={service.process} background={processBg} />
 <ServiceFaq faq={service.faq} background={faqBg} />
-<ServiceFinalCta whatsappMessage={service.whatsappMessage} background={finalCtaBg} />
 <ServiceSchema name={service.title} description={service.meta.description} url={url} />

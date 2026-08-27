@@ -1,5 +1,4 @@
 ---
-
 interface Props {
   title: string;
   items: string[];
@@ -10,11 +9,15 @@ const { title, items, background = "substrate" } = Astro.props;
 const bgClass = background === "paper" ? "bg-paper" : "bg-substrate";
 ---
 
-<section data-reveal class={`relative isolate ${bgClass} px-gutter py-section`}>
-  <div class="relative mx-auto w-full max-w-content">
-    <h3 class="border-t border-rule pt-6 max-w-[24ch] text-step display-face text-balance">{title}</h3>
-    <ul class="m-0 mt-heading grid list-none grid-cols-1 gap-x-grid gap-y-2 p-0 sm:grid-cols-2 wide:grid-cols-3">
-      {items.map((item) => <li class="text-lead-sm text-ink-soft">{item}</li>)}
+<section data-reveal class={`${bgClass} px-gutter py-section`}>
+  <div class="mx-auto w-full max-w-content">
+    <h2 class="max-w-[24ch] text-section display-face text-balance">{title}</h2>
+    <ul class="m-0 mt-heading grid list-none grid-cols-1 gap-x-grid p-0 sm:grid-cols-2 wide:grid-cols-3">
+      {
+        items.map((item) => (
+          <li class="border-t border-rule py-4 text-lead-sm text-ink-soft">{item}</li>
+        ))
+      }
     </ul>
   </div>
 </section>
