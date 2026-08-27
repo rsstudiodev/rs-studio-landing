@@ -1,5 +1,4 @@
 ---
-import i18n from "i18next";
 import type { Project } from "@/content/projects";
 
 interface Props {
@@ -13,9 +12,7 @@ const { project } = Astro.props;
   <div class="mx-auto w-full max-w-content">
     <div class="grid grid-cols-1 gap-split wide:grid-cols-[0.75fr_1.25fr]">
       <div>
-        <h2 class="eyebrow border-t border-rule pt-6 text-moss">
-          {i18n.t("projectPage.overviewLabel")}
-        </h2>
+        <div class="border-t border-rule"></div>
 
       </div>
 

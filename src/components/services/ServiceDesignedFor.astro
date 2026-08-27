@@ -1,5 +1,4 @@
 ---
-import i18n from "i18next";
 
 interface Props {
   title: string;
@@ -13,10 +12,7 @@ const bgClass = background === "paper" ? "bg-paper" : "bg-substrate";
 
 <section data-reveal class={`relative isolate ${bgClass} px-gutter py-section`}>
   <div class="relative mx-auto w-full max-w-content">
-    <h2 class="eyebrow border-t border-rule pt-6 text-moss">
-      {i18n.t("servicePage.designedForLabel")}
-    </h2>
-    <h3 class="mt-6 max-w-[24ch] text-step display-face text-balance">{title}</h3>
+    <h3 class="border-t border-rule pt-6 max-w-[24ch] text-step display-face text-balance">{title}</h3>
     <ul class="m-0 mt-heading grid list-none grid-cols-1 gap-x-grid gap-y-2 p-0 sm:grid-cols-2 wide:grid-cols-3">
       {items.map((item) => <li class="text-lead-sm text-ink-soft">{item}</li>)}
     </ul>

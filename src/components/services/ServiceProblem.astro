@@ -1,5 +1,4 @@
 ---
-import i18n from "i18next";
 
 interface Props {
   problem: string;
@@ -12,13 +11,10 @@ const { problem, whyItMatters } = Astro.props;
 <section data-reveal class="relative isolate bg-substrate px-gutter py-section">
   <div class="relative mx-auto w-full max-w-content">
     <div class="grid grid-cols-1 gap-split wide:grid-cols-[0.75fr_1.25fr]">
-      <h2 class="eyebrow border-t border-rule pt-6 text-moss">
-        {i18n.t("servicePage.problemLabel")}
-      </h2>
+      <div class="border-t border-rule"></div>
       <div class="max-w-prose text-lead text-pretty text-graphite">
         <p>{problem}</p>
-        <h3 class="mt-heading eyebrow text-mute">{i18n.t("servicePage.whyItMattersLabel")}</h3>
-        <p class="mt-4">{whyItMatters}</p>
+        <p class="mt-heading">{whyItMatters}</p>
       </div>
     </div>
   </div>

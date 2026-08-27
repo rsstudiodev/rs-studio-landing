@@ -13,9 +13,7 @@ const dark = tone === "dark";
 ---
 
 <div class:list={[dark ? "border-reverse-rule" : "border-rule", "border-t pt-6", className]}>
-  {meta && <span class:list={["eyebrow", dark ? "text-lichen" : "text-mute"]}>{meta}</span>}
-
-  <h2 id={id} class:list={["max-w-[20ch] text-section display-face text-balance", meta && "mt-4"]}>
+  <h2 id={id} class="max-w-[20ch] text-section display-face text-balance">
     {title}
   </h2>
 </div>
