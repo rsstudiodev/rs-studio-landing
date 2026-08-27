@@ -24,6 +24,7 @@ import {
   Share2,
   Files,
   MessageCircle,
+  Images,
 } from '@lucide/astro';
 
 export type IconName =
@@ -51,7 +52,8 @@ export type IconName =
   | "map-pin"
   | "instagram"
   | "pages"
-  | "whatsapp";
+  | "whatsapp"
+  | "gallery";
 
 interface Props {
   name: IconName;
@@ -86,6 +88,7 @@ const icons: Record<IconName, any> = {
   instagram: Share2,
   pages: Files,
   whatsapp: MessageCircle,
+  gallery: Images,
 };
 
 const IconComponent = icons[name];

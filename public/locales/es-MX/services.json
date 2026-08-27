@@ -260,6 +260,11 @@
           "icon": "layout",
           "title": "Formularios y cotizadores",
           "description": "Formularios de contacto, cotizadores de pocos pasos y descargas. Cada envío llega a tu correo y a WhatsApp."
+        },
+        {
+          "icon": "gallery",
+          "title": "Galería",
+          "description": "Mostramos fotos de tus servicios, instalaciones o trabajos realizados en una galería que genera confianza antes del primer contacto."
         }
       ]
     },

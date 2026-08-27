@@ -260,6 +260,11 @@
           "icon": "layout",
           "title": "Forms and quoters",
           "description": "Contact forms, short quoters and downloads. Every submission reaches your inbox and WhatsApp."
+        },
+        {
+          "icon": "gallery",
+          "title": "Gallery",
+          "description": "We showcase photos of your services, facilities, or past work in a gallery that builds trust before the first contact."
         }
       ]
     },
