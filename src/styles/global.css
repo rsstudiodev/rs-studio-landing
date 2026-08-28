@@ -3,8 +3,7 @@
 /*
  * RS Studio — editorial minimalism on a forest ground.
  *
- * One hue, taken the whole way down: unbleached oatmeal paper at the top of the
- * ramp, fern and moss through the middle, pine at the bottom. No second colour
+ * One hue, taken the whole way down: white paper at the top of the ramp, fern and moss through the middle, pine at the bottom. No second colour
  * family, no gradients, no soft shadows, no radii.
  *
  * What changed in this cut is how much area the colour is allowed to hold. The
@@ -54,62 +53,62 @@
   --container-prose: 720px;
 
   /*
-   * The palette is one hue — green — carried from a bleached oatmeal ground
+   * The palette is one hue — green — carried from a white ground
    * down to a near-black pine, and it is the whole design. No second family:
    * boldness comes from saturation and from how much area the colour is
    * allowed to cover, not from introducing a warm counterpart.
    *
-   * Substrate. Two weights of the same paper, both taken down from the earlier
-   * near-white so the greens above them have something to bite into.
+   * Substrate. White and a white with a faint green cast, so the greens on top
+   * of them read as loud as possible.
    */
-  --color-paper: #ece8d9;
-  --color-substrate: #ddd8c3;
+  --color-paper: #ffffff;
+  --color-substrate: #f2f5ef;
 
   /*
    * Ink. Near-black carrying a green cast, so the type sits in the same family
    * as everything else instead of reading as neutral print. The greys below it
    * are the same ink at lower coverage, not separate colours.
    */
-  --color-ink: #101a12;
-  --color-ink-soft: #24331f;
-  --color-graphite: #465040;
-  --color-mute: #6d7563;
+  --color-ink: #0c1410;
+  --color-ink-soft: #1d2b21;
+  --color-graphite: #425145;
+  --color-mute: #6b7a6d;
 
   /* Hairlines. `rule` is the standard 1px division, `rule-strong` a printed edge. */
-  --color-rule: #c6c0a8;
-  --color-rule-strong: #9c957c;
+  --color-rule: #e2e7de;
+  --color-rule-strong: #aab5a5;
 
   /*
    * Deep moss: the interactive accent. Used for structural markers and for
    * anything the reader can act on. starwind.css already owns --color-accent,
    * so this is "moss".
    */
-  --color-moss: #3f6b34;
+  --color-moss: #1f7a3d;
 
   /*
    * Fern. The saturated end of the ramp — the one colour on the page loud
    * enough to be seen across the room. Reserved for organic ground fields and
    * for the primary call to action; it is not a text colour on paper.
    */
-  --color-fern: #6d8f3f;
+  --color-fern: #3fbf4f;
 
   /*
    * Pine. A full plate, not an accent: whole sections are set on it, which is
    * where most of the new weight in this cut comes from.
    */
-  --color-pine: #1e3e27;
-  --color-pine-deep: #17311e;
+  --color-pine: #0f2e1c;
+  --color-pine-deep: #0a2314;
 
   /* Reversed out of a pine or ink plate. */
-  --color-reverse: #ece8d9;
-  --color-reverse-mute: #93a184;
-  --color-reverse-rule: #2c4230;
+  --color-reverse: #ffffff;
+  --color-reverse-mute: #a9c2ab;
+  --color-reverse-rule: #1e4a2d;
 
   /*
    * Lichen. The accent at the coverage it needs to stay legible on a dark
    * plate — the same hue lifted, not a second accent colour.
    */
-  --color-lichen: #b3c98c;
+  --color-lichen: #8ff08a;
 
   /*
    * Titles. Large enough to open a section, small enough to still be read as
@@ -217,6 +216,64 @@
   --z-grain: 60;
   --z-intro: 100;
 }
+
+/*
+ * Ridge band layers, back to front. Not part of @theme: they are only read by
+ * RidgeBand.astro, and they are the one place the palette needs a light and a
+ * dark reading of the same five steps.
+ */
+:root {
+  --ridge-1: #b3c98c;
+  --ridge-2: #6d8f3f;
+  --ridge-3: #3f6b34;
+  --ridge-4: #1e3e27;
+  --ridge-5: #17311e;
+}
+
+/*
+ * Dark mode. The same one-hue ramp, read from the other end: pine becomes the
+ * ground and the greens lift so they stay legible on it. Only the palette
+ * tokens are redefined - every utility already reads them through var(), so
+ * no component needs a `dark:` class.
+ *
+ * `.dark` is set on <html> by the inline script in Layout.astro, which also
+ * resolves the "system" preference before first paint.
+ */
+.dark {
+  --color-paper: #0d1512;
+  --color-substrate: #131e19;
+
+  --color-ink: #eef3ec;
+  --color-ink-soft: #cfdccc;
+  --color-graphite: #a5b5a3;
+  --color-mute: #7d8e7c;
+
+  --color-rule: #26332c;
+  --color-rule-strong: #3d5044;
+
+  --color-moss: #6fc97c;
+  --color-fern: #8fe07a;
+
+  --color-pine: #0a120e;
+  --color-pine-deep: #070d0a;
+
+  --color-reverse: #eef3ec;
+  --color-reverse-mute: #93a184;
+  --color-reverse-rule: #24382b;
+
+  --color-lichen: #b3e08c;
+
+  /* Lifted, not inverted: the band still reads as ridges receding into depth,
+     but now against the dark ground. */
+  --ridge-1: #cfe8a8;
+  --ridge-2: #8fc95a;
+  --ridge-3: #5da44a;
+  --ridge-4: #3d7a4a;
+  --ridge-5: #2b5c39;
+
+  color-scheme: dark;
+}
+
 
 /* The hamburger gives way to the inline nav, and the header loses ~18px. */
 @media (min-width: 48rem) {

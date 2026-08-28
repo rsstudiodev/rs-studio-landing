@@ -15,14 +15,18 @@ const HEIGHT = 400;
 const STEP = 6;
 const OCTAVES = 5;
 
-/* Colours and rates mirror LAYERS in heroRidges.ts. The baselines are pulled
- * up, because this band is shorter than the hero. */
+/* Rates mirror LAYERS in heroRidges.ts. The baselines are pulled up, because
+ * this band is shorter than the hero.
+ *
+ * The colours are palette tokens rather than literals, so the band follows the
+ * theme: on the light ground it darkens from lichen down to pine, and `.dark`
+ * redefines the same five tokens to lift off the dark ground. */
 const LAYERS = [
-  { color: "#b3c98c", alpha: 0.14, base: 0.26, amplitude: 0.2, frequency: 0.0032, phase: 0 },
-  { color: "#6d8f3f", alpha: 0.18, base: 0.44, amplitude: 0.17, frequency: 0.0045, phase: 1.9 },
-  { color: "#3f6b34", alpha: 0.26, base: 0.61, amplitude: 0.14, frequency: 0.0061, phase: 3.4 },
-  { color: "#1e3e27", alpha: 0.36, base: 0.79, amplitude: 0.11, frequency: 0.0084, phase: 5.1 },
-  { color: "#17311e", alpha: 0.48, base: 0.97, amplitude: 0.08, frequency: 0.011, phase: 6.7 },
+  { color: "var(--ridge-1)", alpha: 0.14, base: 0.26, amplitude: 0.2, frequency: 0.0032, phase: 0 },
+  { color: "var(--ridge-2)", alpha: 0.18, base: 0.44, amplitude: 0.17, frequency: 0.0045, phase: 1.9 },
+  { color: "var(--ridge-3)", alpha: 0.26, base: 0.61, amplitude: 0.14, frequency: 0.0061, phase: 3.4 },
+  { color: "var(--ridge-4)", alpha: 0.36, base: 0.79, amplitude: 0.11, frequency: 0.0084, phase: 5.1 },
+  { color: "var(--ridge-5)", alpha: 0.48, base: 0.97, amplitude: 0.08, frequency: 0.011, phase: 6.7 },
 ];
 
 /* Ridged noise: folding the sine at zero turns hills into peaks. */

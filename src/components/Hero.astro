@@ -4,6 +4,8 @@ import WhatsAppIcon from "./WhatsAppIcon.astro";
 import { whatsappHref } from "@/lib/whatsapp";
 import { projectScreenshots, projectScreenshotAlts } from "@/content/projects";
 import { readImageSize } from "@/lib/imageSize";
+import demoIdiomas from "@/assets/demo-idiomas.jpg";
+import demoGimnasio from "@/assets/demo-gimnasio.jpg";
 
 type Shot = {
   src: string;
@@ -66,10 +68,30 @@ function interleave(shots: Shot[], limit: number, rotate: boolean): Shot[] {
   return frames;
 }
 
-const screenFrames = interleave(
-  sameShape(measured.filter((shot) => shot.ratio > 1)),
-  SCREEN_FRAMES,
-  true,
+// Landing-page demos ride along with the project shots, in random slots.
+const demos: Shot[] = [demoIdiomas, demoGimnasio].map((image, index) => ({
+  src: image.src,
+  project: -1 - index,
+  ratio: image.width / image.height,
+  width: image.width,
+  height: image.height,
+}));
+
+function sprinkle(frames: Shot[], extras: Shot[]): Shot[] {
+  const result = [...frames];
+
+  for (const extra of extras) {
+    // Never slot 0: that frame is the eager LCP image.
+    const at = 1 + Math.floor(Math.random() * result.length);
+    result.splice(at, 0, extra);
+  }
+
+  return result;
+}
+
+const screenFrames = sprinkle(
+  interleave(sameShape(measured.filter((shot) => shot.ratio > 1)), SCREEN_FRAMES, true),
+  demos,
 );
 ---
 <section
@@ -96,7 +118,7 @@ const screenFrames = interleave(
         href={whatsappHref()}
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex min-h-12 items-center gap-2.5 bg-moss px-6 py-3.5 text-paper transition-colors duration-200 hover:bg-pine active:scale-[0.99]"
+        class="inline-flex min-h-12 items-center gap-2.5 bg-moss px-6 py-3.5 text-paper transition-colors duration-200 hover:bg-ink-soft active:scale-[0.99]"
       >
         <WhatsAppIcon class="h-4.5 w-4.5" />
         <span class="text-lead-sm font-medium">{i18n.t("whatsapp.cta")}</span>
@@ -130,17 +152,22 @@ const screenFrames = interleave(
         class="relative aspect-16/10 w-full overflow-hidden bg-paper"
       >
         {
-          screenFrames[0] ? (
-            <img
-              src={screenFrames[0].src}
-              alt={screenFrames[0].alt || "Project work screenshot"}
-              width={screenFrames[0].width}
-              height={screenFrames[0].height}
-              decoding="async"
-              loading="eager"
-              fetchpriority="high"
-              class="absolute inset-0 block h-full w-full object-cover object-top"
-            />
+          screenFrames.length > 0 ? (
+            screenFrames.map((frame, index) => (
+              <img
+                src={frame.src}
+                alt=""
+                aria-hidden="true"
+                width={frame.width}
+                height={frame.height}
+                decoding="async"
+                loading={index === 0 ? "eager" : "lazy"}
+                fetchpriority={index === 0 ? "high" : "auto"}
+                data-hero-frame={index}
+                style={`opacity:${index === 0 ? 1 : 0}`}
+                class="absolute inset-0 block h-full w-full object-cover object-top"
+              />
+            ))
           ) : (
             <span class="absolute inset-0 flex items-center justify-center">
               <span class="label text-mute">

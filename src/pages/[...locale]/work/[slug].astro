@@ -40,10 +40,10 @@ const ogImage = projectScreenshots[index]?.[0];
   <SiteHeader />
   <main id="main">
     <ProjectHeader project={project} />
-    <ProjectGallery project={project} images={projectScreenshots[index]!} />
     <ProjectOverview project={project}>
       <Content />
     </ProjectOverview>
+    <ProjectGallery project={project} images={projectScreenshots[index]!} />
   </main>
   <BackToHome />
   <Contact />

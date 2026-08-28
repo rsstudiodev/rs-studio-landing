@@ -63,8 +63,21 @@ const alternates = Astro.site
     <link rel="manifest" href="/manifest.json" />
     <meta name="msapplication-TileColor" content="#ffffff" />
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1512" media="(prefers-color-scheme: dark)" />
     <meta name="generator" content={Astro.generator} />
+
+    <!-- Resolves the stored theme before first paint, so a dark reader never
+         gets a white flash. Light is the default when nothing is stored. -->
+    <script is:inline>
+      (() => {
+        const theme = localStorage.getItem("theme");
+        const dark =
+          theme === "dark" ||
+          (theme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+        document.documentElement.classList.toggle("dark", dark);
+      })();
+    </script>
 
     <title>{title}</title>
     <meta name="description" content={description} />

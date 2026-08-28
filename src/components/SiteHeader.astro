@@ -1,6 +1,7 @@
 ---
 import i18n from "i18next";
 import LanguageToggle from "./LanguageToggle.astro";
+import ThemeToggle from "./ThemeToggle.astro";
 import { blogPath, homePath, isHome, sectionHref } from "@/i18n/routing";
 
 const pathname = Astro.url.pathname;
@@ -25,7 +26,7 @@ const logoHref = onHome ? "#top" : homePath();
         alt={i18n.t("nav.logoAlt")}
         width="1261"
         height="209"
-        class="block h-5 w-auto"
+        class="block h-5 w-auto dark:brightness-0 dark:invert"
       />
     </a>
 
@@ -46,6 +47,7 @@ const logoHref = onHome ? "#top" : homePath();
 
     <div class="flex items-center gap-2">
       <LanguageToggle />
+      <ThemeToggle />
 
       <button
         type="button"
@@ -70,12 +72,13 @@ const logoHref = onHome ? "#top" : homePath();
         alt={i18n.t("nav.logoAlt")}
         width="1261"
         height="209"
-        class="block h-5 w-auto"
+        class="block h-5 w-auto dark:brightness-0 dark:invert"
       />
     </a>
 
     <div class="flex items-center gap-2">
       <LanguageToggle />
+      <ThemeToggle />
 
       <button
         type="button"

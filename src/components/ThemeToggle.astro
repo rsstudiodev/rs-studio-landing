@@ -1,0 +1,60 @@
+---
+import i18n from "i18next";
+import { Sun, Moon, MonitorCog } from "@lucide/astro";
+
+/*
+ * Three states, one button: light -> dark -> system -> light. The icon shows
+ * the state that is active, not the one the next click selects.
+ */
+---
+
+<button
+  type="button"
+  data-theme-toggle
+  aria-label={i18n.t("theme.label")}
+  title={i18n.t("theme.label")}
+  class="flex h-9 w-9 items-center justify-center text-mute transition-colors duration-200 hover:text-ink"
+>
+  <Sun data-theme-icon="light" class="hidden h-4 w-4" aria-hidden="true" />
+  <Moon data-theme-icon="dark" class="hidden h-4 w-4" aria-hidden="true" />
+  <MonitorCog data-theme-icon="system" class="hidden h-4 w-4" aria-hidden="true" />
+</button>
+
+<script>
+  type Theme = "light" | "dark" | "system";
+
+  const ORDER: Theme[] = ["light", "dark", "system"];
+  const media = window.matchMedia("(prefers-color-scheme: dark)");
+
+  const stored = (): Theme => {
+    const value = localStorage.getItem("theme");
+    return value === "dark" || value === "light" || value === "system" ? value : "light";
+  };
+
+  const apply = (theme: Theme) => {
+    const dark = theme === "dark" || (theme === "system" && media.matches);
+    document.documentElement.classList.toggle("dark", dark);
+
+    document.querySelectorAll<HTMLElement>("[data-theme-icon]").forEach((icon) => {
+      icon.classList.toggle("hidden", icon.dataset.themeIcon !== theme);
+    });
+  };
+
+  const set = (theme: Theme) => {
+    localStorage.setItem("theme", theme);
+    apply(theme);
+  };
+
+  apply(stored());
+
+  document.querySelectorAll<HTMLElement>("[data-theme-toggle]").forEach((button) => {
+    button.addEventListener("click", () => {
+      set(ORDER[(ORDER.indexOf(stored()) + 1) % ORDER.length]!);
+    });
+  });
+
+  /* Only "system" follows the OS; an explicit choice stays put. */
+  media.addEventListener("change", () => {
+    if (stored() === "system") apply("system");
+  });
+</script>

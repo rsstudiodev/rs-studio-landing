@@ -19,6 +19,12 @@
     "label": "Idioma",
     "switchTo": "Cambiar a {{language}}"
   },
+  "theme": {
+    "label": "Tema",
+    "light": "Claro",
+    "dark": "Oscuro",
+    "system": "Sistema"
+  },
   "backToHome": {
     "label": "Volver al inicio"
   },

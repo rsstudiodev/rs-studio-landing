@@ -28,14 +28,11 @@ const labels = {
   screenshots.length > 0 && (
     <section data-reveal class="bg-substrate px-gutter py-section">
       <div class="mx-auto w-full max-w-content">
-        <div class="border-t border-rule" />
-
         <Carousel
           images={screenshots}
           id="project-gallery"
           label={i18n.t("projectPage.galleryRegion")}
           labels={labels}
-          class="mt-heading"
           heightClass="h-96 sm:h-[30rem] lg:h-[38rem]"
           stageClass="bg-paper"
           controlClass="bg-paper/90 p-2.5 text-graphite transition-colors hover:text-ink focus-visible:outline-2 focus-visible:outline-current"

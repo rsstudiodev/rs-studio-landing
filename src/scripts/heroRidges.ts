@@ -16,7 +16,7 @@
  */
 
 type Layer = {
-  color: string;
+  token: string;
   alpha: number;
   /* Baseline as a fraction of canvas height. */
   base: number;
@@ -28,11 +28,11 @@ type Layer = {
 };
 
 const LAYERS: Layer[] = [
-  { color: "#b3c98c", alpha: 0.14, base: 0.52, amplitude: 0.2, frequency: 0.0032, drift: 0.00022, parallax: 0.04, phase: 0 },
-  { color: "#6d8f3f", alpha: 0.18, base: 0.63, amplitude: 0.17, frequency: 0.0045, drift: 0.00035, parallax: 0.08, phase: 1.9 },
-  { color: "#3f6b34", alpha: 0.26, base: 0.74, amplitude: 0.14, frequency: 0.0061, drift: 0.0005, parallax: 0.13, phase: 3.4 },
-  { color: "#1e3e27", alpha: 0.36, base: 0.86, amplitude: 0.11, frequency: 0.0084, drift: 0.0007, parallax: 0.19, phase: 5.1 },
-  { color: "#17311e", alpha: 0.48, base: 0.99, amplitude: 0.08, frequency: 0.011, drift: 0.00095, parallax: 0.26, phase: 6.7 },
+  { token: "--ridge-1", alpha: 0.14, base: 0.52, amplitude: 0.2, frequency: 0.0032, drift: 0.00022, parallax: 0.04, phase: 0 },
+  { token: "--ridge-2", alpha: 0.18, base: 0.63, amplitude: 0.17, frequency: 0.0045, drift: 0.00035, parallax: 0.08, phase: 1.9 },
+  { token: "--ridge-3", alpha: 0.26, base: 0.74, amplitude: 0.14, frequency: 0.0061, drift: 0.0005, parallax: 0.13, phase: 3.4 },
+  { token: "--ridge-4", alpha: 0.36, base: 0.86, amplitude: 0.11, frequency: 0.0084, drift: 0.0007, parallax: 0.19, phase: 5.1 },
+  { token: "--ridge-5", alpha: 0.48, base: 0.99, amplitude: 0.08, frequency: 0.011, drift: 0.00095, parallax: 0.26, phase: 6.7 },
 ];
 
 const OCTAVES = 5;
@@ -54,6 +54,24 @@ const SETTLE_DEPTH = 0.018;
 const CALM = 0.85;
 
 /* Ridged noise: folding the sine at zero turns hills into peaks. */
+/* The layer colours live in global.css so light and dark share one definition.
+ * Canvas cannot read var(), so resolve the tokens against <html> - and cache
+ * them, because getComputedStyle inside the draw loop forces a style recalc on
+ * every frame. The theme toggle flips a class on <html>, which drops the cache. */
+let palette: string[] | null = null;
+
+function colors(): string[] {
+  palette ??= LAYERS.map((layer) =>
+    getComputedStyle(document.documentElement).getPropertyValue(layer.token).trim(),
+  );
+
+  return palette;
+}
+
+new MutationObserver(() => {
+  palette = null;
+}).observe(document.documentElement, { attributeFilter: ["class"] });
+
 function ridge(x: number, phase: number, frequency: number): number {
   let value = 0;
   let weight = 1;
@@ -91,7 +109,9 @@ export function initHeroRidges() {
 
     context.clearRect(0, 0, width, height);
 
-    for (const layer of LAYERS) {
+    const fills = colors();
+
+    for (const [index, layer] of LAYERS.entries()) {
       const phase = layer.phase + clock * layer.drift;
       /* Breathe: peaks grow and shrink on one cycle, the baseline shifts on a
        * slower one, and each layer runs off its own phase. */
@@ -111,7 +131,7 @@ export function initHeroRidges() {
       context.closePath();
 
       context.globalAlpha = layer.alpha;
-      context.fillStyle = layer.color;
+      context.fillStyle = fills[index]!;
       context.fill();
       context.globalAlpha = 1;
     }

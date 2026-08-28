@@ -19,6 +19,12 @@
     "label": "Language",
     "switchTo": "Switch to {{language}}"
   },
+  "theme": {
+    "label": "Theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
   "backToHome": {
     "label": "Back to home"
   },

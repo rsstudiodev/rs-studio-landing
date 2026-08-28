@@ -9,14 +9,14 @@ import { renderRichText } from "@/lib/markdown";
 >
   <span
     aria-hidden="true"
-    class="display-face pointer-events-none absolute top-[-6%] left-1/2 -translate-x-1/2 text-[clamp(220px,32vw,420px)] leading-none text-pine/5 select-none"
+    class="display-face pointer-events-none absolute top-[-6%] left-1/2 -translate-x-1/2 text-[clamp(220px,32vw,420px)] leading-none text-ink/5 select-none"
   >
     &rdquo;
   </span>
   <div class="relative mx-auto grid w-full justify-items-center gap-6 text-center">
     <div
       id="hero-mission"
-      class="max-w-[52ch] text-[clamp(21px,6vw,40px)] font-normal text-pretty leading-snug tracking-tight text-ink-soft [&_p+p]:mt-5 [&_strong]:text-[1.08em] [&_strong]:font-bold [&_strong]:text-pine sm:text-section"
+      class="max-w-[52ch] text-[clamp(21px,6vw,40px)] font-normal text-pretty leading-snug tracking-tight text-ink-soft [&_p+p]:mt-5 [&_strong]:text-[1.08em] [&_strong]:font-bold [&_strong]:text-moss sm:text-section"
       style="opacity:0"
       set:html={renderRichText(i18n.t("hero.introMission"))}
     />

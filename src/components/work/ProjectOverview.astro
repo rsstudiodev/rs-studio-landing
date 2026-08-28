@@ -1,4 +1,5 @@
 ---
+import i18n from "i18next";
 import type { Project } from "@/content/projects";
 
 interface Props {
@@ -6,15 +7,65 @@ interface Props {
 }
 
 const { project } = Astro.props;
+const isExternal = Boolean(project.href?.startsWith("http"));
+
+const meta = [
+  {
+    label: i18n.t("projectPage.categoryLabel"),
+    value: project.category,
+    href: project["category-link"],
+  },
+  { label: i18n.t("projectPage.yearLabel"), value: project.year },
+];
 ---
 
 <section data-reveal class="bg-paper px-gutter py-section">
   <div class="mx-auto w-full max-w-content">
     <div class="grid grid-cols-1 gap-split wide:grid-cols-[0.75fr_1.25fr]">
-      <div>
-        <div class="border-t border-rule"></div>
+      <aside class="wide:sticky wide:top-24 wide:self-start">
+        <dl class="grid grid-cols-2 gap-x-grid border-t border-rule pt-6 wide:grid-cols-1 wide:gap-y-6">
+          {
+            meta.map((item) => (
+              <div>
+                <dt class="label text-mute">{item.label}</dt>
+                <dd class="tnum mt-2 text-subhead display-face">
+                  {item.href ? (
+                    <a
+                      href={item.href}
+                      class="text-moss underline decoration-rule underline-offset-4 transition-colors duration-200 hover:text-ink hover:decoration-current"
+                    >
+                      {item.value}
+                    </a>
+                  ) : (
+                    item.value
+                  )}
+                </dd>
+              </div>
+            ))
+          }
+        </dl>
 
-      </div>
+        {
+          project.href && (
+            <a
+              href={project.href}
+              target={isExternal ? "_blank" : undefined}
+              rel={isExternal ? "noopener noreferrer" : undefined}
+              class="group mt-cta inline-flex min-h-12 items-center gap-2.5 bg-moss px-6 py-3.5 text-paper transition-colors duration-200 hover:bg-ink-soft active:scale-[0.99]"
+            >
+              <span class="text-lead-sm font-medium">
+                {project.cta ?? i18n.t("projectPage.visitSite")}
+              </span>
+              <span
+                aria-hidden="true"
+                class="opacity-70 transition-transform duration-200 group-hover:translate-x-1"
+              >
+                &#8594;
+              </span>
+            </a>
+          )
+        }
+      </aside>
 
       <div class="max-w-prose text-lead text-pretty text-graphite [&>p]:mt-6 [&>p:first-child]:mt-0 [&_em]:italic [&_strong]:font-medium [&_strong]:text-ink">
         <slot />
