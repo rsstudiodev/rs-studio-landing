@@ -18,7 +18,7 @@ type Shot = {
 
 const RATIO_TOLERANCE = 0.06;
 
-const SCREEN_FRAMES = 4;
+const SCREEN_FRAMES = 3;
 
 const measured: Shot[] = projectScreenshots.flatMap((shots, project) =>
   shots.flatMap((src, index) => {
@@ -89,8 +89,13 @@ function sprinkle(frames: Shot[], extras: Shot[]): Shot[] {
   return result;
 }
 
+// Drop the leading shot: the second one opens the reel instead.
 const screenFrames = sprinkle(
-  interleave(sameShape(measured.filter((shot) => shot.ratio > 1)), SCREEN_FRAMES, true),
+  interleave(
+    sameShape(measured.filter((shot) => shot.ratio > 1)),
+    SCREEN_FRAMES + 1,
+    true,
+  ).slice(1),
   demos,
 );
 ---

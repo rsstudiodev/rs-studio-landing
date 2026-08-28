@@ -79,6 +79,14 @@ const alternates = Astro.site
       })();
     </script>
 
+    <!-- A reload must start at the top: the hero scroll effect only plays from
+         there. A hash link keeps the browser's own target. -->
+    <script is:inline>
+      if (!location.hash && "scrollRestoration" in history) {
+        history.scrollRestoration = "manual";
+      }
+    </script>
+
     <title>{title}</title>
     <meta name="description" content={description} />
     {canonical && <link rel="canonical" href={canonical.href} />}

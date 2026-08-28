@@ -7,7 +7,14 @@ gsap.registerPlugin(ScrollTrigger);
 const TILT = 42;
 
 // Scroll distance, in viewport heights, spent on each frame swap while pinned.
-const SWAP_DISTANCE = 0.9;
+// Phones get a shorter pin: the same distance costs far more thumb travel.
+const SWAP_DISTANCE = 0.55;
+const SWAP_DISTANCE_MOBILE = 0.2;
+
+const swapDistance = () =>
+  window.matchMedia("(max-width: 768px)").matches
+    ? SWAP_DISTANCE_MOBILE
+    : SWAP_DISTANCE;
 
 export function initHeroShot() {
   const shot = document.querySelector<HTMLElement>("#hero-shot");
@@ -49,7 +56,7 @@ export function initHeroShot() {
     scrollTrigger: {
       trigger: stage,
       start: "center center",
-      end: () => `+=${window.innerHeight * SWAP_DISTANCE * swaps}`,
+      end: () => `+=${window.innerHeight * swapDistance() * swaps}`,
       pin: stage,
       pinSpacing: true,
       anticipatePin: 1,
