@@ -17,7 +17,6 @@ type Shot = {
 const RATIO_TOLERANCE = 0.06;
 
 const SCREEN_FRAMES = 4;
-const PHONE_FRAMES = 3;
 
 const measured: Shot[] = projectScreenshots.flatMap((shots, project) =>
   shots.flatMap((src, index) => {
@@ -72,16 +71,10 @@ const screenFrames = interleave(
   SCREEN_FRAMES,
   true,
 );
-
-const phoneFrames = interleave(
-  sameShape(measured.filter((shot) => shot.ratio < 1)),
-  PHONE_FRAMES,
-  false,
-);
 ---
 <section
   id="top"
-  class="relative isolate overflow-hidden bg-paper px-gutter pt-hero-top pb-hero-bottom"
+  class="relative isolate overflow-hidden bg-paper px-gutter pt-hero-top pb-[16vh]"
 >
   {/* A drawn range, not a photograph. See heroRidges.ts. */}
   <canvas
@@ -124,99 +117,51 @@ const phoneFrames = interleave(
     </div>
 
     <div
-      id="hero-devices"
-      class="relative mt-flow w-full max-w-[860px] pb-[9%]"
+      id="hero-stage"
+      class="mt-flow w-full max-w-[860px] [perspective:1200px] [perspective-origin:50%_0%]"
     >
       <div
-        id="hero-screen"
-        class="relative mx-auto w-[76%] border border-rule-strong bg-substrate p-2"
+        id="hero-shot"
+        class="relative w-full origin-top border border-rule-strong bg-substrate p-2 will-change-transform [transform-style:preserve-3d]"
       >
-        <div
-          id="hero-screen-window"
-          role="img"
-          aria-label={i18n.t("hero.screenAlt")}
-          class="relative aspect-16/10 w-full overflow-hidden bg-paper"
-        >
-          {
-            screenFrames.length > 0 ? (
-              screenFrames.map((frame, index) => (
-                <img
-                  data-screen-frame
-                  src={frame.src}
-                  alt={frame.alt || "Project work screenshot"}
-                  width={frame.width}
-                  height={frame.height}
-                  decoding="async"
-                  loading={index === 0 ? "eager" : "lazy"}
-                  fetchpriority={index === 0 ? "high" : "low"}
-                  style={index === 0 ? undefined : "opacity:0"}
-                  class="absolute inset-x-0 top-0 block w-full"
-                />
-              ))
-            ) : (
-              <span class="absolute inset-0 flex items-center justify-center">
-                <span class="label text-mute">
-                  {i18n.t("work.shotPlaceholder")}
-                </span>
-              </span>
-            )
-          }
-
-          <span
-            aria-hidden="true"
-            class="halftone-fine absolute inset-0 opacity-8"></span>
-        </div>
-        <span
-          aria-hidden="true"
-          class="absolute top-full left-1/2 h-[5%] w-[9%] -translate-x-1/2 bg-substrate"
-        ></span>
-        <span
-          aria-hidden="true"
-          class="absolute top-[105%] left-1/2 h-px w-[26%] -translate-x-1/2 bg-rule-strong"
-        ></span>
-      </div>
       <div
-        id="hero-phone"
-        class="absolute bottom-0 left-[3%] w-[17%] border border-rule-strong bg-substrate px-1.5 pt-2.5 pb-1.5"
+        role="img"
+        aria-label={i18n.t("hero.screenAlt")}
+        class="relative aspect-16/10 w-full overflow-hidden bg-paper"
       >
+        {
+          screenFrames[0] ? (
+            <img
+              src={screenFrames[0].src}
+              alt={screenFrames[0].alt || "Project work screenshot"}
+              width={screenFrames[0].width}
+              height={screenFrames[0].height}
+              decoding="async"
+              loading="eager"
+              fetchpriority="high"
+              class="absolute inset-0 block h-full w-full object-cover object-top"
+            />
+          ) : (
+            <span class="absolute inset-0 flex items-center justify-center">
+              <span class="label text-mute">
+                {i18n.t("work.shotPlaceholder")}
+              </span>
+            </span>
+          )
+        }
+
         <span
           aria-hidden="true"
-          class="absolute top-1.25 left-1/2 h-px w-[22%] -translate-x-1/2 bg-rule-strong"
-        ></span>
-        <div
-          id="hero-phone-window"
-          role="img"
-          aria-label={i18n.t("hero.phoneAlt")}
-          class="relative aspect-9/17 w-full overflow-hidden bg-paper"
-        >
-          {
-            phoneFrames.map((frame, index) => (
-              <img
-                data-phone-frame
-                src={frame.src}
-                alt={frame.alt || "Mobile project screenshot"}
-                width={frame.width}
-                height={frame.height}
-                decoding="async"
-                loading="lazy"
-                style={index === 0 ? undefined : "opacity:0"}
-                class="absolute inset-x-0 top-0 block w-full"
-              />
-            ))
-          }
-
-          <span
-            aria-hidden="true"
-            class="halftone-fine absolute inset-0 opacity-8"></span>
+          class="halftone-fine absolute inset-0 opacity-8"></span>
         </div>
       </div>
     </div>
   </div>
 </section>
 <script>
-  import { initHeroDevices } from "@/scripts/heroDevices";
+  import { initHeroShot } from "@/scripts/heroShot";
   import { initHeroRidges } from "@/scripts/heroRidges";
 
   initHeroRidges();
-  initHeroDevices();
+  initHeroShot();
 </script>

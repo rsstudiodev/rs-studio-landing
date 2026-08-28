@@ -1,0 +1,157 @@
+{
+  "page": "landingPages",
+  "slug": "landing-pages",
+  "metaTitle": "Landing pages y sitios web para negocios de servicios | RS Studio",
+  "metaDescription": "Diseñamos sitios web y landing pages para negocios de servicios. Presenta tus servicios, genera confianza y consigue más contactos calificados. Rápidos, optimizados y listos para convertir.",
+  "ogImage": "landingPages.svg",
+  "whatsappMessage": "¡Hola! Me interesa una landing page para mi negocio.",
+  "seoKeywords": [
+    "landing pages",
+    "sitios web para negocios de servicios",
+    "diseño de landing pages",
+    "generación de contactos"
+  ],
+  "sections": [
+    {
+      "section": "Hero",
+      "icon": "landingPages",
+      "headline": "Sitios web que ayudan a negocios de servicios a conseguir más clientes",
+      "intro": "Para consultores, clínicas, despachos legales, estudios y negocios de servicios locales. Un sitio bien construido explica qué haces, genera confianza antes de la primera conversación y convierte visitantes en contactos reales. No solo tráfico."
+    },
+    {
+      "section": "Problem",
+      "problem": "Muchos negocios de servicios dependen de las recomendaciones y las redes sociales porque su sitio no hace el trabajo de vender. No explica con claridad qué ofrecen. No muestra por qué los clientes deberían confiar en ellos. Y no le da al visitante una razón clara para contactarlos.",
+      "whyItMatters": "Un cliente potencial decide si confía en ti en cuestión de segundos. Si tu sitio no comunica tus servicios, tu experiencia y tus resultados con claridad, se va. Probablemente contacta a tu competencia."
+    },
+    {
+      "section": "Benefits",
+      "items": [
+        "Presenta tus servicios con claridad",
+        "Genera confianza antes del primer contacto",
+        "Filtra mejor tus contactos mostrando precios o paquetes",
+        "Responde las preguntas que todo cliente tiene",
+        "Optimizado para móvil con carga rápida",
+        "Seguimiento de contactos y cotizaciones"
+      ]
+    },
+    {
+      "section": "Quoter",
+      "heading": "Diagnóstico Rápido",
+      "subheading": "Responde 3 preguntas y recibe una propuesta personalizada por WhatsApp, sin costo.",
+      "questions": [
+        {
+          "id": "business-type",
+          "label": "¿Qué tipo de negocio tienes?",
+          "options": [
+            "Restaurantes y alimentos",
+            "Belleza y estética (Spa, Barbería, Salón, Uñas y Cejas, etc.)",
+            "Taller (Mecánico, Eléctrico, etc)",
+            "Consultoría (Legal, Financiera, Bienes raíces)",
+            "Servicios médicos (Consulta privada, Nutrición, Dentista, Atención psicológica)",
+            "Fitness (Gimnasio, Crossfit, Pilates, Entrenamientos personalizados)",
+            "Otro"
+          ]
+        },
+        {
+          "id": "main-challenge",
+          "label": "¿Cuáles son tus principales desafíos?",
+          "options": [
+            "Conseguir más clientes",
+            "Mostrar confianza",
+            "Filtrar clientes",
+            "Agendar citas",
+            "Mostrar precios"
+          ]
+        },
+        {
+          "id": "digital-assets",
+          "label": "¿Qué activos digitales ya tienes?",
+          "options": [
+            "Logo, colores, identidad gráfica",
+            "Fotos de calidad",
+            "Cuenta Instagram",
+            "Perfil Google Maps",
+            "Menús/Catálogo",
+            "Testimonios",
+            "Ninguno",
+            "Otros"
+          ]
+        }
+      ]
+    },
+    {
+      "section": "DomainOptions",
+      "headline": "Tu dominio te pertenece. Elige lo que funcione para tu negocio.",
+      "intro": "Elige el dominio que funcione para tu negocio.",
+      "custom": {
+        "heading": "Dominio Personalizado",
+        "items": [
+          "Propiedad total, control total",
+          "Puedes moverlo o transferirlo cuando quieras",
+          "Registra tu propio dominio (mirestaurante.com, miclínica.mx, tu-nombre.services)"
+        ]
+      },
+      "subdomain": {
+        "heading": "Subdominio Profesional Gratis",
+        "items": [
+          "La misma profesionalidad, sin costo extra",
+          "Sin tiempo de espera, comienza de inmediato",
+          "Te ayudamos a decidir cuál se adapta mejor a tu modelo de negocio durante la fase de descubrimiento"
+        ]
+      }
+    },
+    {
+      "section": "Showcase",
+      "headline": "¿Qué podemos construir para ti?",
+      "intro": "Estos son dos sitios de demostración que construimos para mostrar cómo se ve el resultado. Ábrelos, navégalos y pide el tuyo con las secciones que tu negocio necesita.",
+      "demos": [
+        {
+          "image": "demo-idiomas.jpg",
+          "name": "Idiomas del Futuro",
+          "tagline": "Escuela de idiomas · demo",
+          "description": "Sitio de una escuela de idiomas. Muestra los próximos inicios de curso con lugares disponibles, los programas por nivel, los planes con precio, el feed de Instagram, los testimonios de alumnos y el mapa de la sede. El botón de reserva abre WhatsApp con el mensaje ya escrito.",
+          "tags": ["Calendario de cursos", "Planes y precios", "Instagram", "Testimonios", "Mapa", "Reserva por WhatsApp"]
+        },
+        {
+          "image": "demo-gimnasio.jpg",
+          "name": "Super Gimnasio",
+          "tagline": "Escuela de box · demo",
+          "description": "Sitio de un gimnasio con varias páginas: clases, horarios semanales, entrenadores, instalaciones y membresías. Cada membresía muestra qué incluye y cuánto cuesta. El botón flotante de WhatsApp agenda la primera clase desde cualquier página.",
+          "tags": ["Múltiples páginas", "Horarios", "Membresías", "Equipo", "Galería", "WhatsApp fijo"]
+        }
+      ],
+      "capabilities": [
+        { "icon": "calendar", "title": "Calendarios y horarios", "description": "Horarios de clases, próximos inicios, disponibilidad por día y lugares restantes. El visitante ve cuándo puede llegar sin escribirte." },
+        { "icon": "whatsapp", "title": "Reservaciones por WhatsApp", "description": "Botones de reserva que abren WhatsApp con el mensaje ya escrito: servicio, horario y datos. Recibes contactos listos para agendar." },
+        { "icon": "instagram", "title": "Integración de redes", "description": "Feed de Instagram, enlaces a Facebook y TikTok, y reseñas de Google. Tu actividad reciente da señal de que el negocio está vivo." },
+        { "icon": "map-pin", "title": "Mapa y ubicación", "description": "Mapa integrado, dirección, referencias para llegar, estacionamiento y horario de atención. Con enlace directo a Google Maps y a Waze." },
+        { "icon": "pages", "title": "Múltiples páginas", "description": "Una página por tema: servicios, equipo, instalaciones, precios, contacto y blog. Cada una se posiciona por su cuenta en buscadores." },
+        { "icon": "wallet", "title": "Precios detallados", "description": "Tablas de precios, rangos o paquetes con lo que incluye cada uno. Filtras contactos antes de la primera conversación." },
+        { "icon": "package", "title": "Servicios y paquetes", "description": "Cada servicio con su descripción, duración, para quién es y qué resultado da. Sin listas vagas que no dicen nada." },
+        { "icon": "users", "title": "Equipo y testimonios", "description": "Perfiles del equipo con experiencia y certificaciones, más testimonios reales de clientes. Es lo que genera confianza antes del contacto." },
+        { "icon": "layout", "title": "Formularios y cotizadores", "description": "Formularios de contacto, cotizadores de pocos pasos y descargas. Cada envío llega a tu correo y a WhatsApp." },
+        { "icon": "gallery", "title": "Galería", "description": "Mostramos fotos de tus servicios, instalaciones o trabajos realizados en una galería que genera confianza antes del primer contacto." }
+      ]
+    },
+    {
+      "section": "Process",
+      "steps": [
+        { "title": "Descubrimiento", "body": "Entendemos tu negocio, tu oferta y el objetivo de la página: contactos, citas, cotizaciones o ventas." },
+        { "title": "Estrategia", "body": "Definimos la estructura, el mensaje y el llamado a la acción que va a convertir mejor para tu audiencia." },
+        { "title": "Implementación", "body": "Diseñamos y desarrollamos la landing page, con formularios, WhatsApp y seguimiento de conversiones ya integrados." },
+        { "title": "Optimización", "body": "Medimos resultados y ajustamos textos, diseño y velocidad para mejorar la conversión con el tiempo." }
+      ]
+    },
+    {
+      "section": "Faq",
+      "items": [
+        { "question": "¿Cómo genero confianza en línea antes de la primera conversación?", "answer": "Tu sitio web hace la mayor parte de este trabajo por ti. Muestra testimonios reales de clientes anteriores, explica tu experiencia, comparte casos de éxito o ejemplos de tu trabajo, y sé claro sobre tu proceso. Los clientes deciden en segundos si confían en ti. Un sitio profesional que responde sus preguntas facilita esa decisión." },
+        { "question": "¿Qué debo incluir en mi sitio web?", "answer": "Como mínimo: qué haces, a quién atiendes, por qué los clientes deberían confiar en ti (testimonios, experiencia, resultados), cómo contactarte y un siguiente paso claro. Algunos negocios también se benefician de mostrar precios, preguntas frecuentes o un sistema de citas. Te recomendamos lo que tenga sentido para tu modelo de negocio." },
+        { "question": "¿Puedo mostrar mis precios o paquetes?", "answer": "Sí. Muchos negocios de servicios prefieren mostrar precios o rangos desde el inicio para filtrar a los clientes correctos antes de la primera conversación. Esto ahorra tiempo a todos. Definimos esto juntos según tu modelo de negocio." },
+        { "question": "¿Cómo encuentran mi sitio web?", "answer": "Construimos tu sitio con SEO básico para que tenga una base. Pero conseguir visibilidad es un esfuerzo continuo que suele incluir: Perfil de Negocio de Google (sobre todo para servicios locales), aparecer en directorios que usan tus clientes, recomendaciones y a veces publicidad. Podemos platicar qué tiene sentido para tu tipo de negocio." },
+        { "question": "¿Qué pasa después de que alguien me contacta por el sitio web?", "answer": "Depende de tu proceso. Integramos WhatsApp, correo o sistemas de citas según lo que funcione para ti. El objetivo es que sea lo más fácil posible para que alguien te contacte. También damos seguimiento a estos contactos para que sepas que el sitio está funcionando." },
+        { "question": "¿Soy dueño de mi dominio?", "answer": "Sí. Si eliges un dominio personalizado, lo posees completamente. Puedes transferirlo, moverlo, o usarlo en otro lugar cuando quieras. Si comienzas con un subdominio rslink.mx gratis y luego quieres tu propio dominio, podemos migrarlo sin problemas." }
+      ]
+    }
+  ]
+}
